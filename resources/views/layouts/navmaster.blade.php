@@ -14,13 +14,10 @@
   <div id="navid" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item menutext thisactive" href="/rumah">
-                Rumah
+              Beranda
             </a>
       <a class="navbar-item menutext" href="/tentangkami">
               Tentang Kami
-            </a>
-      <a class="navbar-item menutext" href="/kontak_kami">
-              Kontak Kami
             </a>
     </div>
 

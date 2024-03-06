@@ -4,7 +4,7 @@
         </div>
         <span class="container has-text-centered textbox">
             <h1 class="title is-1">BLOG</h1>
-            <div class="title">E-Commerce Properti - Platform Transaksi Properti</div>
+            <div class="title">Sabar Ganda Property - Platform Transaksi Properti</div>
         </span>
     </section>
     <div class="container">

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{$building->name}} - E-Commerce Properti</title>
+    <title>{{$building->name}} - Sabar Ganda Property</title>
 
     {{-- CSS Files --}}
     <link rel="stylesheet" href="/css/bulma.min.css">
@@ -304,11 +304,11 @@
             {{-- Contact Owner Emaik --}}
             <div class="notification is-danger">
                 <button class="delete"></button>
-                <strong>Informasi Penting:</strong> Iklan ini telah diposting di E-Commerce Properti oleh pengiklan yang disebutkan di atas. 
-                E-Commerce Properti tidak memiliki hubungan apa pun dengan pengiklan ini, kami juga tidak memeriksa pengiklan, 
+                <strong>Informasi Penting:</strong> Iklan ini telah diposting di Sabar Ganda Property oleh pengiklan yang disebutkan di atas. 
+                Sabar Ganda Property tidak memiliki hubungan apa pun dengan pengiklan ini, kami juga tidak memeriksa pengiklan, 
                 menjamin layanan mereka, bertanggung jawab atas keakuratan konten iklan, 
                 atau bertanggung jawab atas layanan yang disediakan oleh pengiklan. 
-                E-Commerce Properti tidak menyediakan layanan apa pun selain daftar iklan yang dipasang oleh pengiklan. 
+                Sabar Ganda Property tidak menyediakan layanan apa pun selain daftar iklan yang dipasang oleh pengiklan. 
                 Anda akan menghubungi pengiklan (pemilik/agen) properti ini secara langsung. 
                 Kami menyarankan Anda untuk berhati-hati saat melakukan pembayaran atau menandatangani perjanjian apa pun 
                 dan waspada terhadap kemungkinan penipuan. Jika melakukan pembayaran, kami menyarankan Anda memiliki dua metode kontak permanen 
@@ -388,7 +388,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{$building->property->name}} - E-Commerce Properti</title>
+    <title>{{$building->property->name}} - Sabar Ganda Property</title>
 
     {{-- CSS Files --}}
     <link rel="stylesheet" href="/css/bulma.min.css">
@@ -686,11 +686,11 @@
             {{-- Contact Owner Emaik --}}
             <div class="notification is-danger">
                 <button class="delete"></button>
-                <strong>Informasi Penting:</strong> Iklan ini telah diposting di E-Commerce Properti oleh pengiklan yang disebutkan di atas. 
-                E-Commerce Properti tidak memiliki hubungan apa pun dengan pengiklan ini, kami juga tidak memeriksa pengiklan, 
+                <strong>Informasi Penting:</strong> Iklan ini telah diposting di Sabar Ganda Property oleh pengiklan yang disebutkan di atas. 
+                Sabar Ganda Property tidak memiliki hubungan apa pun dengan pengiklan ini, kami juga tidak memeriksa pengiklan, 
                 menjamin layanan mereka, bertanggung jawab atas keakuratan konten iklan, 
                 atau bertanggung jawab atas layanan yang disediakan oleh pengiklan. 
-                E-Commerce Properti tidak menyediakan layanan apa pun selain daftar iklan yang dipasang oleh pengiklan. 
+                Sabar Ganda Property tidak menyediakan layanan apa pun selain daftar iklan yang dipasang oleh pengiklan. 
                 Anda akan menghubungi pengiklan (pemilik/agen) properti ini secara langsung. 
                 Kami menyarankan Anda untuk berhati-hati saat melakukan pembayaran atau menandatangani perjanjian apa pun 
                 dan waspada terhadap kemungkinan penipuan. Jika melakukan pembayaran, kami menyarankan Anda memiliki dua metode kontak permanen 

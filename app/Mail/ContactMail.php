@@ -30,7 +30,7 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Pesan Baru - E-Commerce Properti')
+        return $this->subject('Pesan Baru - Sabar Ganda Property')
                     ->markdown('emails.contactemail');
     }
 }

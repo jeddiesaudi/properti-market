@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tentang Kami - E-Commerce Properti</title>
+    <title>Tentang Kami - Sabar Ganda Property</title>
 
     {{-- CSS Files --}}
     <link rel="stylesheet" href="/css/bulma.min.css">
@@ -41,10 +41,10 @@
                 </div>
             </div>
             <br>
-            <p>Selamat datang di E-Commerce Properti, sumber nomor satu Anda untuk semua hal transaksi Properti. Kami berdedikasi untuk memberikan yang terbaik dari transaksi Properti, dengan fokus pada kecepatan, kepercayaan, dan efisien.
+            <p>Selamat datang di Sabar Ganda Property, sumber nomor satu Anda untuk semua hal transaksi Properti. Kami berdedikasi untuk memberikan yang terbaik dari transaksi Properti, dengan fokus pada kecepatan, kepercayaan, dan efisien.
                 <br>
                 <br>
-                <p>Didirikan pada tahun 2022 oleh Firyanul Rizky, Portal E-Commerce Properti ini telah dikembangkan ketika Firyanul Rizky pertama kali memulai hasratnya untuk cepat mendapatkan pekerjaan dan dapat dipercaya serta mendorong banyak orang untuk melakukan pencarian terkait transaksi properti sehingga Platform ini dapat menawarkan mesin pencari properti tercanggih di dunia. Kami sekarang melayani pelanggan di wilayah bali, dan sangat senang bahwa kami dapat mengubah hasrat kami menjadi situs web kami sendiri.</p>
+                <p>Didirikan pada tahun 2022 oleh Firyanul Rizky, Portal Sabar Ganda Property ini telah dikembangkan ketika Firyanul Rizky pertama kali memulai hasratnya untuk cepat mendapatkan pekerjaan dan dapat dipercaya serta mendorong banyak orang untuk melakukan pencarian terkait transaksi properti sehingga Platform ini dapat menawarkan mesin pencari properti tercanggih di dunia. Kami sekarang melayani pelanggan di wilayah bali, dan sangat senang bahwa kami dapat mengubah hasrat kami menjadi situs web kami sendiri.</p>
                 <br>
                 <p>Kami harap Anda menikmati layanan kami sama seperti kami menikmati menawarkannya kepada Anda. Jika Anda memiliki pertanyaan atau komentar, jangan ragu untuk menghubungi kami.</p>
                 <br>

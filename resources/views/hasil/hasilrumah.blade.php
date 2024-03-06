@@ -25,7 +25,7 @@
             @csrf
               <div class="field has-addons searchagain">
                   <p class="control has-icons-left is-expanded">
-                    <input class="input is-medium inputsearchbox" type="text" placeholder="Cari berdasarkan Kota, Kode Pos" id="search" name="searchquery">
+                    <input class="input is-medium inputsearchbox" type="text" placeholder="Cari berdasarkan Kota, Kode Pos, dll." id="search" name="searchquery">
                     <span class="icon is-small is-left">
                       <i class="fas fa-search"></i>
                     </span>

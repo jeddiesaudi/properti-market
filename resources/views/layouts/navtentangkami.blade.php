@@ -15,21 +15,6 @@
         <a class="navbar-item menutext" href="/rumah">
                   Rumah
               </a>
-        <a class="navbar-item menutext" href="/lahan">
-                  Lahan
-              </a>
-        <a class="navbar-item menutext" href="/apartemen">
-                  Apartemen
-              </a>
-        <a class="navbar-item menutext" href="/gedung">
-                  Gedung
-              </a>
-        <a class="navbar-item menutext" href="/gudang">
-                Gudang
-              </a>
-        <a class="navbar-item menutext" href="/blog">
-                Blog
-              </a>
         <a class="navbar-item menutext thisactive" href="/tentangkami">
                 Tentang Kami
               </a>

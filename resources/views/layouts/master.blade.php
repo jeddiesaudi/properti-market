@@ -33,26 +33,6 @@
                                   <span class="has-text-white">Rumah</span>
                                 </a>
                       </li>
-                      <li class="deadtabitem">
-                        <a href="/lahan">
-                                  <span class="has-text-white">Lahan</span>
-                                </a>
-                      </li>
-                      <li class="deadtabitem">
-                        <a href="/apartemen">
-                                  <span class="has-text-white">Apartemen</span>
-                                </a>
-                      </li>
-                      <li class="deadtabitem">
-                        <a href="/gedung">
-                                  <span class="has-text-white">Gedung</span>
-                                </a>
-                      </li>
-                      <li class="deadtabitem">
-                        <a href="/gudang">
-                                  <span class="has-text-white">Gudang</span>
-                                </a>
-                      </li>
                     </ul>
                   </div>
 
@@ -61,13 +41,13 @@
                   @csrf
                     <div class="field has-addons searchinput">
                         <p class="control has-icons-left is-expanded">
-                          <input class="input is-large inputsearchbox" type="text" placeholder="Cari berdasarkan Kota,Kode Pos,dll." id="search" name="searchquery">
+                          <input class="input is-large inputsearchbox" type="text" placeholder="Cari berdasarkan Kota, Kode Pos, dll." id="search" name="searchquery">
                           <span class="icon is-small is-left">
                             <i class="fas fa-search"></i>
                           </span>
                         </p>
                         <div class="control">
-                            <button class="button inputsearchbox is-primary is-large"><p class="subtitle is-6 has-text-white">Cari</p></button>
+                            <button class="button inputsearchbox is-primary is-large"><span class="subtitle is-6 has-text-white">Cari</span></button>
                         </div>
                     </div>
                     <div class="is-hidden-touch">
@@ -170,12 +150,12 @@
                  </p>
                  <br>
                  <p class="has-text-white">
-                  Jika Anda belum mengetahui tentang cara kerja platform ini, Anda cukup mengunjungi blog kami untuk mendapatkan informasi tentang cara kerjanya.
+                  Jika Anda belum mengetahui tentang cara kerja platform ini, Anda cukup menghubungi kami untuk mendapatkan informasi lebih lanjut.
                  </p>
                  <br>
                  <p class="control">
-                    <a class="button is-primary is-inverted is-outlined loginbutton" href="/blog">
-                      <span>Baca</span>
+                    <a class="button is-primary is-inverted is-outlined loginbutton" href="/tentangkami">
+                      <span>Hubungi Kami</span>
                     </a>
                   </p>
                </div>
@@ -184,7 +164,6 @@
                 <span class="icon has-text-white is-large">
                   <i class="fas fa-home fa-5x"></i>
                 </span>
-                <h1 class="has-text-white">JOIN SEKARANG!</h1>
                 <h4 class="has-text-white">Temukan Rumah Impian Anda</h4>
             </div>
         </div>
@@ -203,9 +182,6 @@
           Apa yang Anda Cari?
         </div>
         Algoritme pencarian cepat kami memilih yang terbaik untuk Anda
-          <div class="marginten">
-            <a href="/" class="has-text-info">Cari Sekarang</a>
-          </div>
       </div>
       <div class="column has-text-centered">
         <span class="is-centered has-text-primary">
@@ -213,12 +189,9 @@
         </span>
         <br>
         <div class="subtitle has-text-dark marginten">
-          Tips Rumah Idaman!
+        Rumah Idaman!
         </div>
-        Berlangganan blog kami untuk mendapatkan tips rumah idaman
-          <div class="marginten">
-            <a href="/" class="has-text-info marginten">Kunjungi Blog</a>
-          </div>
+        Temukan rumah idaman kalian di sini
       </div>
       <div class="column has-text-centered">
         <span class="is-centered has-text-primary">
@@ -226,12 +199,9 @@
         </span>
         <br>
         <div class="subtitle has-text-dark marginten">
-          Jual Propertimu?
+          Jaminan Harga Termurah?
         </div>
-        Daftar sekarang, jual rumah, tanah atau apartemen Anda dengan mudah dan gratis
-        <div class="marginten">
-            <a href="register" class="has-text-info marginten">Register Sekarang</a>
-        </div>
+        Kami menjual rumah dengan murah dan sangat terjangkau untuk Anda
       </div>
       <div class="column"></div>
     </div>
@@ -296,16 +266,6 @@
               <span>Join Sekarang</span>
             </a>
           </p>
-      </div>
-    </div>
-
-    {{-- Article Section --}}
-    <div class="column">
-        <h3 class="title is-3 has-text-grey-darker has-text-centered">Artikel Blog Terbaru</h3>
-      <div class="container">
-        @foreach ($articles as $article)
-          @include('layouts.artikel')
-        @endforeach
       </div>
     </div>
 

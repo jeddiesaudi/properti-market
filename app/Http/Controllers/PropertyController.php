@@ -19,28 +19,16 @@ class PropertyController extends Controller
         $request->validate([
             'name' => 'required|max:50|min:3',
             'type' => 'required',
-            'amount' => 'required|regex:/^\d+(\.\d{1,2})?$/',
             'city' => 'required',
-            'postalcode' => 'required|integer',
-            'province' => 'required',
+            'wilayah' => 'required',
             'description' => 'required|min:100',
-            'contactno' => 'required|numeric',
-            'contactemail' => 'email|required',
             'filename' => 'required',
             'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
-            'lat' => 'required',
-            'lng' => 'required',
+            'amount' => 'required|regex:/^\d+(\.\d{1,2})?$/',        
+            'periode' => 'required|integer',
             'rooms' => 'required|integer',
-            'kitchen' => 'required|integer',
             'floor' => 'required|integer',
-            'washroom' => 'required|integer',
-            'size' => 'required|integer',
-            'swimming' => 'required',
-            'garden' => 'required',
-            'nschool' => 'required',
-            'nrailway' => 'required',
-            'nbus' => 'required'
-            
+            'stok' => 'required|integer',
         ]);
 
         $property = new Property;
@@ -65,30 +53,18 @@ class PropertyController extends Controller
         $property->user_id = auth()->id();
         $property->name = request('name');
         $property->amount = request('amount');
+        $property->periode = request('periode');
         $property->city = request('city');
-        $property->postalCode = request('postalcode');
-        $property->province = request('province');
+        $property->wilayah = request('wilayah');
         $property->description = request('description');
-        $property->contactNo = request('contactno');
-        $property->contatctEmail = request('contactemail');
         $property->images =json_encode($data);
-        $property->availability ='Tersedia';
-        $property->latitude = request('lat');
-        $property->longitude = request('lng');
         $property->save();
 
         $house = new Rumah;
         $house->property()->associate($property);
         $house->noOfRooms = request('rooms');
-        $house->noOfKitchen = request('kitchen');
         $house->noOfFloors = request('floor');
-        $house->noOfWashrooms = request('washroom');
-        $house->size = request('size');
-        $house->swimmingPool = request('swimming');
-        $house->garden = request('garden');
-        $house->nearestSchool = request('nschool');
-        $house->nearestRailway = request('nrailway');
-        $house->nearestBusStop = request('nbus');
+        $house->stok = request('stok');
         $house->save();
 
         return back()->with('message', 'Properti Anda telah berhasil ditambahkan!');

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     protected $fillable = [
-        'name', 'latitude', 'longitude','type','amount','city','postalCode','province','description','images','availability','contactNo','contatctEmail'
+        'name','type','amount','city','wilayah','description','images'
     ];
 
     public function house(){

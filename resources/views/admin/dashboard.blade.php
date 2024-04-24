@@ -12,32 +12,7 @@
 
     }
     </script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-
-      var data = google.visualization.arrayToDataTable({!! $graphUserData !!},false);
-      var options = {'title':'Registrasi User Bulanan', 'width':300,'height':200};
-      var chart = new google.visualization.PieChart(document.getElementById('chart_month'));
-      chart.draw(data, options);
-
-    }
-    </script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-
-      var data = google.visualization.arrayToDataTable({!! $graphUserProvince !!},false);
-      var options = {'title':'Persentase Kabupaten', 'width':300,'height':200};
-      var chart = new google.visualization.PieChart(document.getElementById('chart_province'));
-      chart.draw(data, options);
-
-    }
-    </script>
+    
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart', 'bar']});
       google.charts.setOnLoadCallback(drawChart);
@@ -59,20 +34,7 @@
 
     }
     </script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-
-      var data = google.visualization.arrayToDataTable({!! $graphAvailabilityData !!},false);
-      var options = {'title':'Properti Berdasarkan Ketersediaan', 'width':300,'height':200};
-      var chart = new google.visualization.PieChart(document.getElementById('chart_availability'));
-      chart.draw(data, options);
-
-    }
     
-    </script>
 <div class="column displaybox profileback">
   @include('admin.navprofile')
   <nav class="breadcrumb has-arrow-separator profileback breadcrumbcss" aria-label="breadcrumbs">

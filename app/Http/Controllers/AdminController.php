@@ -48,25 +48,6 @@ class AdminController extends Controller
         }
         $data = json_encode($array);
 
-        //User Registration
-        $graphUser = User::select(DB::raw('monthname(created_at) as Month,count(date_format(created_at,"%m")) as Count'))->groupBy('Month')->get();
-        $arrayUser[] = ['Month', 'Count'];
-        foreach ($graphUser as $key => $value) {
-
-            $arrayUser[++$key] = [$value->Month, $value->Count];
-        }
-        $graphUserData = json_encode($arrayUser);
-
-        //Provice Chart
-        $graphDataProvice = Property::select('province', DB::raw('count(province) number'))->groupBy('province')->get();
-        $arrayProvice[] = ['Provice', 'Number'];
-        foreach ($graphDataProvice as $key => $value) {
-
-            $arrayProvice[++$key] = [$value->province, $value->number];
-        }
-
-        $graphUserProvince = json_encode($arrayProvice);
-
         //Property Reports
         $graphReport = ReportProperty::select(DB::raw('monthname(created_at) as Month,count(date_format(created_at,"%m")) as Count'))->groupBy('Month')->get();
         $arrayReport[] = ['Month', 'Count'];
@@ -76,16 +57,7 @@ class AdminController extends Controller
         }
         $graphReportData = json_encode($arrayReport);
 
-        //Type Graph
-        $graphAvailability = Property::select('availability', DB::raw('count(availability) number'))->groupBy('availability')->get();
-        $arrayAvailability[] = ['Availability', 'Number'];
-        foreach ($graphAvailability as $key => $value) {
-
-            $arrayAvailability[++$key] = [$value->availability, $value->number];
-        }
-        $graphAvailabilityData = json_encode($arrayAvailability);
-
-        return view('admin.master', compact('properties', 'users', 'data', 'graphUserData', 'graphUserProvince', 'graphReportData', 'graphAvailabilityData'));
+        return view('admin.master', compact('properties', 'users', 'data', 'graphReportData'));
     }
 
     public function updateAvatar(Request $request)

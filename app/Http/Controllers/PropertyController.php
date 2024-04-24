@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Property;
 use App\Rumah;
-use Image;
+use Intervention\Image\Facades\Image;
 use App\Lahan;
 use App\Gedung;
 use App\Apartemen;
@@ -18,7 +18,6 @@ class PropertyController extends Controller
 
         $request->validate([
             'name' => 'required|max:50|min:3',
-            'type' => 'required',
             'city' => 'required',
             'wilayah' => 'required',
             'description' => 'required|min:100',
@@ -26,13 +25,11 @@ class PropertyController extends Controller
             'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             'amount' => 'required|regex:/^\d+(\.\d{1,2})?$/',        
             'periode' => 'required|integer',
-            'rooms' => 'required|integer',
-            'floor' => 'required|integer',
             'stok' => 'required|integer',
         ]);
 
         $property = new Property;
-        $rumah_dir=$property->type = request('type');
+        $rumah_dir=$property->type = 'Rumah';
 
         if($request->hasfile('filename'))
          {
@@ -45,7 +42,7 @@ class PropertyController extends Controller
             foreach($request->file('filename') as $image)
             {
                 $name= uniqid('real_') . '.' . $image->getClientOriginalExtension();
-                Image::make($image)->resize(1280,876)->save(($dir . $name));  
+                Image::make(file_get_contents($image))->resize(1280,876)->save(($dir . $name));  
                 $data[] = $name;
             }
          }
@@ -57,13 +54,11 @@ class PropertyController extends Controller
         $property->city = request('city');
         $property->wilayah = request('wilayah');
         $property->description = request('description');
-        $property->images =json_encode($data);
+        $property->images = json_encode($data);
         $property->save();
 
         $house = new Rumah;
         $house->property()->associate($property);
-        $house->noOfRooms = request('rooms');
-        $house->noOfFloors = request('floor');
         $house->stok = request('stok');
         $house->save();
 

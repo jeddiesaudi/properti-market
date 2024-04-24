@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rumah extends Model
 {
     protected $fillable = [
-        'noOfRooms', 'noOfFloors', 'stok'
+        'stok'
     ];
 
     public function property(){

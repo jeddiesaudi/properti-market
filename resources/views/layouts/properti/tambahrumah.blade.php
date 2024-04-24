@@ -31,7 +31,7 @@
     <div class="container">
         <div class="columns is-mobile is-centered">
             <div class="column is-8">
-                {{-- @include('layouts.errors') --}}
+                @include('layouts.errors')
                 @if(session()->has('message'))
                 <div class="notification is-success">
                     <button class="delete"></button>
@@ -54,17 +54,6 @@
                             <span>
                                 <strong class="has-text-danger">{{ $errors->first('name') }}</strong>
                             </span> @endif
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="control">
-                            <label for="name">Jenis Properti</label>
-                            <br>
-                            <div class="select is-primary is-full {{ $errors->has('type') ? ' is-danger' : '' }}">
-                                <select name="type">
-                                    <option value="Rumah">Rumah</option>
-                                </select>
-                            </div>
                         </div>
                     </div>
                     <div class="field">
@@ -146,30 +135,11 @@
                             <br>
                             <div class="select is-primary is-full {{ $errors->has('periode') ? ' is-danger' : '' }}">
                                 <select name="periode">
+                                    <option value="3">3 Bulan</option>
                                     <option value="6">6 Bulan</option>
-                                    <option value="12">12 Bulan</option>
+                                    <option value="12">1 Tahun</option>
                                 </select>
                             </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="control">
-                            <label for="name">Jumlah Kamar</label>
-                            <input class="input is-primary {{ $errors->has('rooms') ? ' is-danger' : '' }}" type="number" name="rooms" value="{{ old('rooms') }}">
-                            @if ($errors->has('rooms'))
-                                <span>
-                                    <strong class="has-text-danger">{{ $errors->first('rooms') }}</strong>
-                                </span> @endif
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="control">
-                            <label for="name">Jumlah Lantai</label>
-                            <input class="input is-primary {{ $errors->has('floor') ? ' is-danger' : '' }}" type="number" name="floor" value="{{ old('floor') }}">
-                            @if ($errors->has('floor'))
-                                <span>
-                                    <strong class="has-text-danger">{{ $errors->first('floor') }}</strong>
-                                </span> @endif
                         </div>
                     </div>
                     <div class="field">
@@ -205,7 +175,20 @@
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/fontawesome.js"></script>
     <script src="/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
     
+          $(".addmore").click(function(){ 
+              var html = $(".clone").html();
+              $(".increment").after(html);
+          });
+    
+          $("body").on("click",".is-danger",function(){ 
+              $(this).parents(".control-group").remove();
+          });
+    
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {

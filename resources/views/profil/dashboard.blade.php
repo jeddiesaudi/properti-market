@@ -31,13 +31,7 @@
               <span class="icon has-text-centered is-large">
                 <i class="fas fa-home fa-4x"></i>
               </span>
-              <h6 class="is-uppercase has-text-weight-bold">Jual Properti</h6>
-            </div>
-            <div class="column has-text-centered selecticon" onclick="location.href='/profil/favoritsaya'">
-              <span class="icon has-text-centered is-large">
-                <i class="fas fa-heart fa-4x"></i>
-              </span>
-              <h6 class="is-uppercase has-text-weight-bold">Favorit Anda</h6>
+              <h6 class="is-uppercase has-text-weight-bold">Tambah Properti</h6>
             </div>
             <div class="column has-text-centered selecticon" onclick="location.href='/profil/pesan'">
               <span class="icon has-text-centered is-large">

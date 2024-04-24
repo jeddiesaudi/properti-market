@@ -19,8 +19,7 @@ class PropertyController extends Controller
         $request->validate([
             'name' => 'required|max:50|min:3',
             'city' => 'required',
-            'wilayah' => 'required',
-            'description' => 'required|min:100',
+            'description' => 'required',
             'filename' => 'required',
             'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             'amount' => 'required|regex:/^\d+(\.\d{1,2})?$/',        
@@ -52,7 +51,7 @@ class PropertyController extends Controller
         $property->amount = request('amount');
         $property->periode = request('periode');
         $property->city = request('city');
-        $property->wilayah = request('wilayah');
+        $property->wilayah = 'JABODETABEK';
         $property->description = request('description');
         $property->images = json_encode($data);
         $property->save();

@@ -121,28 +121,12 @@ class RumahController extends Controller
 
             $request->validate([
                 'name' => 'required|max:50|min:3',
-                'type' => 'required',
-                'amount' => 'required',
                 'city' => 'required',
-                'postalcode' => 'required|integer',
-                'province' => 'required',
-                'description' => 'required|min:100',
-                'contactno' => 'required',
-                'contactemail' => 'email|required',
+                'description' => 'required',
                 'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
-                'lat' => 'required',
-                'lat' => 'required',
-                'rooms' => 'required|integer',
-                'kitchen' => 'required|integer',
-                'floor' => 'required|integer',
-                'washroom' => 'required|integer',
-                'size' => 'required|integer',
-                'swimming' => 'required',
-                'garden' => 'required',
-                'nschool' => 'required',
-                'nrailway' => 'required',
-                'nbus' => 'required',
-
+                'amount' => 'required|regex:/^\d+(\.\d{1,2})?$/',        
+                'periode' => 'required|integer',
+                'stok' => 'required|integer',
             ]);
 
             if ($request->hasfile('filename')) {
@@ -163,49 +147,21 @@ class RumahController extends Controller
             }
 
             $property->name = request('name');
-            $property->type = request('type');
             $property->amount = request('amount');
+            $property->periode = request('periode');
             $property->city = request('city');
-            $property->postalCode = request('postalcode');
-            $property->province = request('province');
+            $property->wilayah = 'JABODETABEK';
             $property->description = request('description');
-            $property->contactNo = request('contactno');
-            $property->contatctEmail = request('contactemail');
 
             if ($request->hasfile('filename')) {
 
                 $property->images = json_encode($data);
             }
 
-            $property->latitude = request('lat');
-            $property->longitude = request('lng');
             $property->save();
 
-            $house->noOfRooms = request('rooms');
-            $house->noOfKitchen = request('kitchen');
-            $house->noOfFloors = request('floor');
-            $house->noOfWashrooms = request('washroom');
-            $house->size = request('size');
-            $house->swimmingPool = request('swimming');
-            $house->garden = request('garden');
-            $house->nearestSchool = request('nschool');
-            $house->nearestRailway = request('nrailway');
-            $house->nearestBusStop = request('nbus');
+            $house->stok = request('stok');
             $house->save();
-
-            if (Auth::guard('admin')->check()) {
-
-                $message = new MailNotification;
-                $message->receiver_email = $property->user->email;
-                $message->receiver_name = $property->user->name;
-                $message->property_name = $property->name;
-                $message->property_location = $property->city;
-                $message->property_createdOn = $property->created_at;
-                $message->status = 'Property diubah';
-                $message->subject = "Properti Anda telah diubah!";
-
-                \Mail::to($message->receiver_email)->send(new EmailNotification($message));
-            }
 
             Alert::success('Properti Anda telah berhasil diedit!', 'Berhasil Diperbarui')->autoclose(3000);
             return back()->with('message', 'Your property has been Berhasil Diperbarui!');

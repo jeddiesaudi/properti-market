@@ -69,17 +69,6 @@
                     </div>
                     <div class="field">
                         <div class="control">
-                            <label for="name">Wilayah</label>
-                            <br>
-                            <div class="select is-primary is-full {{ $errors->has('wilayah') ? ' is-danger' : '' }}">
-                                <select name="wilayah">
-                                    <option value="jabodetabek">JABODETABEK</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="control">
                             <label for="name">Deskripsi Properti</label>
                             <textarea name="description" class="textarea is-primary {{ $errors->has('description') ? ' is-danger' : '' }}" value="{{ old('description') }}"></textarea>
                             @if ($errors->has('description'))
@@ -137,7 +126,7 @@
                                 <select name="periode">
                                     <option value="3">3 Bulan</option>
                                     <option value="6">6 Bulan</option>
-                                    <option value="12">1 Tahun</option>
+                                    <option value="12">12 Bulan</option>
                                 </select>
                             </div>
                         </div>

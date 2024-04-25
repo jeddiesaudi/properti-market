@@ -32,9 +32,6 @@
                 </p>
                 <ul class="menu-list listitem is-size-6">
                   <li><a href="/profil">Dashboard</a></li>
-                  <li><a href="/profil/favoritsaya">Favorit</a></li>
-                  <li><a href="/profil/transaksisaya">Transaksi</a></li>
-                  <li><a href="/profil/pesan">Kotak Masuk</a></li>
                 </ul>
                 <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold is-uppercase">
                   Administrasi
@@ -45,15 +42,10 @@
                   <li><a href="/profil/hapusakun">Hapus Akun</a></li>
                 </ul>
                 <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold is-uppercase">
-                  Poperti Saya
+                  Properti Sabar Ganda
                 </p>
                 <ul class="menu-list listitem">
-                  <li><a href="/profil/rumahsaya">Rumah</a></li>
-                  <li><a href="/profil/lahansaya">Lahan</a></li>
-                  <li><a href="/profil/gedungsaya">Gedung</a></li>
-                  <li><a href="/profil/apartemensaya">Apartemen</a></li>
-                  <li><a href="/profil/gudangsaya">Gudang</a></li>
-                </ul>
+                  <li><a href="/profil/rumahsaya">Semua Properti</a></li>
                 <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold is-uppercase">
                   Lainnya
                 </p>

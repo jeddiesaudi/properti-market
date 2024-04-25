@@ -28,81 +28,17 @@ Route::get('/beranda', [App\Http\Controllers\PageController::class, 'index'])->n
 Route::get('/tambah/propertisg', [App\Http\Controllers\PageController::class, 'tambahPropertiSG']);
 Route::post('/tambah/propertisg', [App\Http\Controllers\PropertyController::class, 'tambahPropertiSG']);
 
-Route::get('/rumah/cari', [App\Http\Controllers\PageController::class, 'carirumah']);
+Route::get('/propertisg/cari', [App\Http\Controllers\PageController::class, 'cariPropertiSG']);
 Route::get('/propertisg/{house}', [App\Http\Controllers\PropertiSGController::class, 'tampilPropertiSG']);
-Route::get('/admin/rumah/{house}', [App\Http\Controllers\PropertiSGController::class, 'tampilPropertiSG']);
-Route::post('/rumah/{house}', [App\Http\Controllers\PropertiSGController::class, 'cariRumah']);
-Route::post('/rumah/{house}/transaksi', [App\Http\Controllers\TransaksiController::class, 'transaksiRumah']);
-Route::post('/rumah/{house}/kontakpemilik', [App\Http\Controllers\UserEmailController::class, 'kontakRumah']);
-Route::post('/rumah/{house}/report', [App\Http\Controllers\ReportPropertyController::class, 'reportRumah']);
-Route::get('/rumah/{house}/favorit', [App\Http\Controllers\FavoritController::class, 'RumahFavorit']);
-Route::get('/profil/rumah/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'tampilEditRumah'])->middleware('auth');
-Route::get('/admin/rumah/{house}/edit', [App\Http\Controllers\AdminController::class, 'tampilAdminEditRumah'])->middleware('auth:admin');
-Route::post('/admin/rumah/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'editRumah']);
-Route::post('/profil/rumah/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'editRumah']);
-Route::post('/profil/rumah/{house}/hapus', [App\Http\Controllers\PropertiSGController::class, 'hapusRumah']);
-Route::post('/admin/rumah/{house}/hapus', [App\Http\Controllers\PropertiSGController::class, 'hapusRumah'])->middleware('auth:admin');
-
-Route::get('/lahan/cari', [App\Http\Controllers\PageController::class, 'carilahan']);
-Route::get('/lahan/{land}', [App\Http\Controllers\LahanController::class, 'tampilLahan']);
-Route::get('/admin/lahan/{land}', [App\Http\Controllers\LahanController::class, 'tampilLahanAdmin']);
-Route::post('/lahan/{land}', [App\Http\Controllers\LahanController::class, 'cariLahan']);
-Route::post('/lahan/{land}/transaksi', [App\Http\Controllers\TransaksiController::class, 'transaksiLahan']);
-Route::post('/lahan/{land}/kontakpemilik', [App\Http\Controllers\UserEmailController::class, 'kontakLahan']);
-Route::post('/lahan/{land}/report', [App\Http\Controllers\ReportPropertyController::class, 'reportLahan']);
-Route::get('/lahan/{land}/favorit', [App\Http\Controllers\FavoritController::class, 'LahanFavorit']);
-Route::get('/profil/lahan/{land}/edit', [App\Http\Controllers\LahanController::class, 'tampilEditLahan'])->middleware('auth');
-Route::get('/admin/lahan/{land}/edit', [App\Http\Controllers\AdminController::class, 'tampilAdminEditLahan'])->middleware('auth:admin');
-Route::post('/admin/lahan/{land}/edit', [App\Http\Controllers\LahanController::class, 'editLahan']);
-Route::post('/profil/lahan/{land}/edit', [App\Http\Controllers\LahanController::class, 'editLahan']);
-Route::post('/profil/lahan/{land}/hapus', [App\Http\Controllers\LahanController::class, 'hapusLahan']);
-Route::post('/admin/lahan/{land}/hapus', [App\Http\Controllers\LahanController::class, 'hapusLahanAdmin'])->middleware('auth:admin');
-
-Route::get('/gedung/cari', [App\Http\Controllers\PageController::class, 'carigedung']);
-Route::get('/gedung/{building}', [App\Http\Controllers\GedungController::class, 'tampilGedung']);
-Route::get('/admin/gedung/{building}', [App\Http\Controllers\GedungController::class, 'tampilGedungAdmin']);
-Route::post('/gedung/{building}', [App\Http\Controllers\GedungController::class, 'cariGedung']);
-Route::post('/gedung/{building}/transaksi', [App\Http\Controllers\TransaksiController::class, 'transaksiGedung']);
-Route::post('/gedung/{building}/kontakpemilik', [App\Http\Controllers\UserEmailController::class, 'kontakBangunan']);
-Route::post('/gedung/{building}/report', [App\Http\Controllers\ReportPropertyController::class, 'reportGedung']);
-Route::get('/gedung/{building}/favorit', [App\Http\Controllers\FavoritController::class, 'GedungFavorit']);
-Route::get('/profil/gedung/{building}/edit', [App\Http\Controllers\GedungController::class, 'tampilEditGedung'])->middleware('auth');
-Route::get('/admin/gedung/{building}/edit', [App\Http\Controllers\AdminController::class, 'tampilAdminEditGedung'])->middleware('auth:admin');
-Route::post('/admin/gedung/{building}/edit', [App\Http\Controllers\GedungController::class, 'editGedung']);
-Route::post('/profil/gedung/{building}/edit', [App\Http\Controllers\GedungController::class, 'editGedung']);
-Route::post('/profil/gedung/{building}/hapus', [App\Http\Controllers\GedungController::class, 'hapusGedung']);
-Route::post('/admin/gedung/{building}/hapus', [App\Http\Controllers\GedungController::class, 'hapusGedung'])->middleware('auth:admin');
-
-Route::get('/apartemen/cari', [App\Http\Controllers\PageController::class, 'cariapartemen']);
-Route::get('/apartemen/{apartment}', [App\Http\Controllers\ApartemenController::class, 'tampilApartemen']);
-Route::get('/admin/apartemen/{apartment}', [App\Http\Controllers\ApartemenController::class, 'tampilApartemenAdmin']);
-Route::post('/apartemen/{apartment}', [App\Http\Controllers\ApartemenController::class, 'cariApartemen']);
-Route::post('/apartemen/{apartment}/transaksi', [App\Http\Controllers\TransaksiController::class, 'transaksiApartemen']);
-Route::post('/apartemen/{apartment}/kontakpemilik', [App\Http\Controllers\UserEmailController::class, 'kontakApartemen']);
-Route::post('/apartemen/{apartment}/report', [App\Http\Controllers\ReportPropertyController::class, 'reportApartemen']);
-Route::get('/apartemen/{apartment}/favorit', [App\Http\Controllers\FavoritController::class, 'ApartemenFavorit']);
-Route::get('/profil/apartemen/{apartment}/edit', [App\Http\Controllers\ApartemenController::class, 'tampilEditApartemen'])->middleware('auth');
-Route::get('/admin/apartemen/{apartment}/edit', [App\Http\Controllers\AdminController::class, 'tampilAdminEditApartemen'])->middleware('auth:admin');
-Route::post('/admin/apartemen/{apartment}/edit', [App\Http\Controllers\ApartemenController::class, 'editApartemen']);
-Route::post('/profil/apartemen/{apartment}/edit', [App\Http\Controllers\ApartemenController::class, 'editApartemen']);
-Route::post('/profil/apartemen/{apartment}/hapus', [App\Http\Controllers\ApartemenController::class, 'hapusApartemen']);
-Route::post('/admin/apartemen/{apartment}/hapus', [App\Http\Controllers\ApartemenController::class, 'hapusApartemen'])->middleware('auth:admin');
-
-Route::get('/gudang/cari', [App\Http\Controllers\PageController::class, 'carigudang']);
-Route::get('/gudang/{warehouse}', [App\Http\Controllers\GudangController::class, 'tampilGudang']);
-Route::get('/admin/gudang/{warehouse}', [App\Http\Controllers\GudangController::class, 'tampilGudangAdmin']);
-Route::post('/gudang/{warehouse}', [App\Http\Controllers\GudangController::class, 'cariGudang']);
-Route::post('/gudang/{warehouse}/transaksi', [App\Http\Controllers\TransaksiController::class, 'transaksiGudang']);
-Route::post('/gudang/{warehouse}/kontakpemilik', [App\Http\Controllers\UserEmailController::class, 'kontakGudang']);
-Route::post('/gudang/{warehouse}/report', [App\Http\Controllers\ReportPropertyController::class, 'reportGudang']);
-Route::get('/gudang/{warehouse}/favorit', [App\Http\Controllers\FavoritController::class, 'GudangFavorit']);
-Route::get('/profil/gudang/{warehouse}/edit', [App\Http\Controllers\GudangController::class, 'tampilEditGudang'])->middleware('auth');
-Route::get('/admin/gudang/{warehouse}/edit', [App\Http\Controllers\AdminController::class, 'tampilAdminEditGudang'])->middleware('auth:admin');
-Route::post('/admin/gudang/{warehouse}/edit', [App\Http\Controllers\GudangController::class, 'editGudang']);
-Route::post('/profil/gudang/{warehouse}/edit', [App\Http\Controllers\GudangController::class, 'editGudang']);
-Route::post('/profil/gudang/{warehouse}/hapus', [App\Http\Controllers\GudangController::class, 'hapusGudang']);
-Route::post('/admin/gudang/{warehouse}/hapus', [App\Http\Controllers\GudangController::class, 'hapusGudang'])->middleware('auth:admin');
-
+Route::get('/admin/propertisg/{house}', [App\Http\Controllers\PropertiSGController::class, 'tampilPropertiSG']);
+Route::post('/propertisg/{house}', [App\Http\Controllers\PropertiSGController::class, 'cariPropertiSG']);
+Route::post('/propertisg/{house}/report', [App\Http\Controllers\ReportPropertyController::class, 'reportPropertiSG']);
+Route::get('/profil/propertisg/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'tampilEditPropertiSG'])->middleware('auth');
+Route::get('/admin/propertisg/{house}/edit', [App\Http\Controllers\AdminController::class, 'tampilAdminEditPropertiSG'])->middleware('auth:admin');
+Route::post('/admin/propertisg/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'editPropertiSG']);
+Route::post('/profil/propertisg/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'editPropertiSG']);
+Route::post('/profil/propertisg/{house}/hapus', [App\Http\Controllers\PropertiSGController::class, 'hapusPropertiSG']);
+Route::post('/admin/propertisg/{house}/hapus', [App\Http\Controllers\PropertiSGController::class, 'hapusPropertiSG'])->middleware('auth:admin');
 
 
 //General Route
@@ -126,11 +62,7 @@ Route::post('/profil/updatepassword', [App\Http\Controllers\ProfilController::cl
 Route::post('/admin/updateavatar', [App\Http\Controllers\AdminController::class, 'updateAvatar'])->middleware('auth:admin');
 Route::get('/admin/user/{user}/tampil', [App\Http\Controllers\AdminController::class, 'tampilUser'])->middleware('auth:admin');
 Route::get('/admin/properti/semua', [App\Http\Controllers\AdminController::class, 'tampilSemuaProperti'])->middleware('auth:admin');
-Route::get('/admin/properti/rumah', [App\Http\Controllers\AdminController::class, 'tampilSemuaRumah'])->middleware('auth:admin');
-Route::get('/admin/properti/lahan', [App\Http\Controllers\AdminController::class, 'tampilSemuaLahan'])->middleware('auth:admin');
-Route::get('/admin/properti/gedung', [App\Http\Controllers\AdminController::class, 'tampilSemuaGedung'])->middleware('auth:admin');
-Route::get('/admin/properti/apartemen', [App\Http\Controllers\AdminController::class, 'tampilSemuaApartemen'])->middleware('auth:admin');
-Route::get('/admin/properti/gudang', [App\Http\Controllers\AdminController::class, 'tampilSemuaGudang'])->middleware('auth:admin');
+Route::get('/admin/properti/propertisg', [App\Http\Controllers\AdminController::class, 'tampilSemuaPropertiSG'])->middleware('auth:admin');
 Route::get('/admin/user/semua', [App\Http\Controllers\AdminController::class, 'tampilSemuaUser'])->middleware('auth:admin');
 Route::get('/admin/user/{user}/kontak', [App\Http\Controllers\AdminController::class, 'adminKontakUser'])->middleware('auth:admin');
 Route::post('/admin/user/kontak', [App\Http\Controllers\AdminController::class, 'adminKirimKontakUser'])->middleware('auth:admin');
@@ -148,23 +80,6 @@ Route::post('/admin/{admin}/hapus', [App\Http\Controllers\AdminController::class
 Route::get('/admin/report', [App\Http\Controllers\AdminController::class, 'tampilReport'])->middleware('auth:admin');
 Route::post('/admin/report/{property}/lock', [App\Http\Controllers\AdminController::class, 'lockProperti'])->middleware('auth:admin');
 Route::post('/admin/report/{property}/unlock', [App\Http\Controllers\AdminController::class, 'unlockProperti'])->middleware('auth:admin');
-Route::get('/admin/artikel', [App\Http\Controllers\AdminController::class, 'semuaArtikel'])->middleware('auth:admin');
-Route::post('/admin/blog/{article}/hapus', [App\Http\Controllers\AdminController::class, 'hapusArtikel'])->middleware('auth:admin');
-Route::get('/admin/pertanyaan/tampil', [App\Http\Controllers\AdminController::class, 'semuaPertanyaan'])->middleware('auth:admin');
-Route::get('/admin/pertanyaan/{message}/balas', [App\Http\Controllers\AdminController::class, 'tampilBalasPertanyaan'])->middleware('auth:admin');
-Route::post('/admin/pertanyaan/balas', [App\Http\Controllers\AdminController::class, 'balasPertanyaan'])->middleware('auth:admin');
-Route::post('/admin/pertanyaan/{message}/hapus', [App\Http\Controllers\AdminController::class, 'hapusPertanyaan'])->middleware('auth:admin');
-
-//Blog
-Route::get('/blog', [App\Http\Controllers\PageController::class, 'tampilBlog']);
-Route::get('/blog/{article}/tampil', [App\Http\Controllers\PageController::class, 'tampilBlogPost']);
-Route::get('/blog/baru', [App\Http\Controllers\ArtikelController::class, 'BlogPostBaru'])->middleware('auth:admin');
-Route::post('/blog/baru', [App\Http\Controllers\ArtikelController::class, 'tambahBlogPost'])->middleware('auth:admin');
-Route::get('/blog/{article}/edit', [App\Http\Controllers\ArtikelController::class, 'tampilEditBlogPost'])->middleware('auth:admin');
-Route::post('/blog/{article}/edit', [App\Http\Controllers\ArtikelController::class, 'editBlogPost'])->middleware('auth:admin');
-Route::post('/blog/komen', [App\Http\Controllers\KomentarController::class, 'tambahKomentar']);
-Route::get('/blog/komen/{comment}/hapus', [App\Http\Controllers\KomentarController::class, 'hapusKomentar'])->middleware('auth:admin');
-Route::get('/blog/komen/{comment}/hapus/user', [App\Http\Controllers\KomentarController::class, 'hapusKomentar'])->middleware('auth');
 
 // Auth::routes();
 Auth::routes(['verify' => true]);

@@ -4,20 +4,14 @@ namespace App\Http\Controllers;
 
 use Alert;
 use App\Admin;
-use App\Apartemen;
-use App\Artikel;
-use App\Gedung;
-use App\Rumah;
-use App\Lahan;
+use App\PropertiSG;
 use App\MailNotification;
-use App\Mail\ContactMail;
 use App\Mail\EmailNotification;
 use App\Message;
 use App\Property;
 use App\ReportProperty;
 use App\User;
 use App\UserEmail;
-use App\Gudang;
 use Auth;
 use function GuzzleHttp\json_encode;
 use Illuminate\Http\Request;
@@ -89,7 +83,7 @@ class AdminController extends Controller
 
     }
 
-    public function tampilAdminEditRumah(Rumah $house)
+    public function tampilAdminEditPropertiSG(PropertiSG $house)
     {
 
         $id = Auth::user()->id;
@@ -108,85 +102,6 @@ class AdminController extends Controller
 
     }
 
-    public function tampilAdminEditLahan()
-    {
-        $id = Auth::user()->id;
-
-        $land=Lahan::whereHas('property')->first();
-
-        $messages = UserEmail::where(function($query) use ($id) 
-        {
-            $query->where('receiver_id','=', $id);
-
-        })->where(function ($query){
-
-            $query->where('status', 'LIKE', 'unread');
-
-        });
-
-        return view('admin.master', compact('land','messages'));
-
-    }
-
-    public function tampilAdminEditGedung()
-    {
-        $id = Auth::user()->id;
-
-        $building=Gedung::whereHas('property')->first();
-
-        $messages = UserEmail::where(function($query) use ($id) 
-        {
-            $query->where('receiver_id','=', $id);
-
-        })->where(function ($query){
-
-            $query->where('status', 'LIKE', 'unread');
-
-        });
-
-        return view('admin.master', compact('building','messages'));
-
-    }
-
-    public function tampilAdminEditApartemen()
-    {
-        $id = Auth::user()->id;
-
-        $apartment=Apartemen::whereHas('property')->first();
-
-        $messages = UserEmail::where(function($query) use ($id) 
-        {
-            $query->where('receiver_id','=', $id);
-
-        })->where(function ($query){
-
-            $query->where('status', 'LIKE', 'unread');
-
-        });
-
-        return view('admin.master', compact('apartment','messages'));
-
-    }
-
-    public function tampilAdminEditGudang()
-    {
-        $id = Auth::user()->id;
-
-        $warehouse=Gudang::whereHas('property')->first();
-
-        $messages = UserEmail::where(function($query) use ($id) 
-        {
-            $query->where('receiver_id','=', $id);
-
-        })->where(function ($query){
-
-            $query->where('status', 'LIKE', 'unread');
-
-        });
-
-        return view('admin.master', compact('warehouse','messages'));
-
-    }
 
     public function tampilSemuaProperti()
     {
@@ -196,7 +111,7 @@ class AdminController extends Controller
         return view('admin.master', compact('properties'));
     }
 
-    public function tampilSemuaRumah()
+    public function tampilSemuaPropertiSG()
     {
 
         $properties = PropertiSG::whereHas('property', function ($query) {
@@ -208,113 +123,11 @@ class AdminController extends Controller
         return view('admin.master', compact('properties'));
     }
 
-    public function tampilSemuaLahan()
-    {
-
-        $properties = Lahan::whereHas('property', function ($query) {
-
-            $query->where('type', '=', 'lahan');
-
-        })->paginate(25);
-
-
-        return view('admin.master', compact('properties'));
-    }
-
-    public function tampilSemuaGedung()
-    {
-
-        $properties = Gedung::whereHas('property', function ($query) {
-
-            $query->where('type', '=', 'gedung');
-
-        })->paginate(25);
-
-        return view('admin.master', compact('properties'));
-    }
-
-    public function tampilSemuaApartemen()
-    {
-
-        $properties = Apartemen::whereHas('property', function ($query) {
-
-            $query->where('type', '=', 'apartemen');
-
-        })->paginate(25);
-
-        return view('admin.master', compact('properties'));
-    }
-
-    public function tampilSemuaGudang()
-    {
-
-        $properties = Gudang::whereHas('property', function ($query) {
-
-            $query->where('type', '=', 'gudang');
-
-        })->paginate(25);
-
-        return view('admin.master', compact('properties'));
-    }
-
     public function tampilSemuaUser()
     {
 
         $users = User::paginate(20);
         return view('admin.master', compact('users'));
-    }
-
-    public function adminKontakUser(User $user)
-    {
-        $id = Auth::user()->id;
-        $messages = UserEmail::where(function($query) use ($id) 
-        {
-            $query->where('receiver_id','=', $id);
-
-        })->where(function ($query){
-
-            $query->where('status', 'LIKE', 'unread');
-    
-        });
-
-        return view('admin.master', compact('user','messages'));
-
-    }
-
-    public function adminKirimKontakUser(Request $request)
-    {
-
-        $validator = Validator::make($request->all(), [
-            'message' => 'required|string|max:2500|min:10',
-        ]);
-
-        if ($validator->fails()) {
-
-            Alert::error('Silahkan periksa input Anda dan perbaiki kesalahan berikut', 'Percobaan Tidak Valid')->autoclose(3000);
-            return back()->withErrors($validator);
-        }
-
-        $message = new UserEmail;
-        $message->receiver_id = request('receiverid');
-        $message->sender_id = auth()->user()->id;
-        $message->senderMail = auth()->user()->email;
-        $message->senderName = 'Administrator';
-        $message->phoneNo = auth()->user()->phoneNo;
-        $message->subject = request('subject');
-        $message->message = request('message');
-        $message->property_url = '/';
-        $message->save();
-
-        $request->name = 'Administrator';
-        $request->email = auth()->user()->email;
-        $request->pno = auth()->user()->phoneNo;
-        $request->property_url = '/';
-
-        \Mail::to(request('receiver'))->send(new ContactMail($request));
-
-        Alert::success('Pesan telah berhasil dikirim!', 'Pesan Terkirim')->autoclose(3000);
-
-        return back();
     }
 
     public function tampilAdminEditUser(User $user)
@@ -369,22 +182,6 @@ class AdminController extends Controller
             if (strcmp($propertyType, 'house')) {
 
                 DB::table('rumahs')->where('property_id', '=', $property->id)->delete();
-
-            } elseif (strcmp($propertyType, 'land')) {
-
-                DB::table('lahans')->where('property_id', '=', $property->id)->delete();
-
-            } elseif (strcmp($propertyType, 'building')) {
-
-                DB::table('gedungs')->where('property_id', '=', $property->id)->delete();
-
-            } elseif (strcmp($propertyType, 'apartment')) {
-
-                DB::table('apartemens')->where('property_id', '=', $property->id)->delete();
-
-            } elseif (strcmp($propertyType, 'warehouse')) {
-
-                DB::table('gudangs')->where('property_id', '=', $property->id)->delete();
 
             } else {
                 Alert::error('Permintaan Anda telah ditolak oleh sistem', 'System Error')->autoclose(3000);
@@ -598,74 +395,6 @@ class AdminController extends Controller
         Alert::success('Properti telah ter-Unlock!', 'UNLOCKED!')->autoclose(3000);
         return back();
 
-    }
-
-    public function semuaArtikel()
-    {
-
-        $articles = Artikel::orderBy('id', 'desc')
-            ->paginate(20);
-
-        return view('admin.master', compact('articles'));
-    }
-
-    public function hapusArtikel(Artikel $article)
-    {
-
-        DB::table('articles')->where('id', '=', $article->id)->delete();
-        Alert::success('Artikel telah berhasil dihapus!', 'Deleted Successfully!')->autoclose(3000);
-        return back();
-    }
-
-    public function semuaPertanyaan()
-    {
-
-        $inquiries = Message::latest()->paginate(20);
-        return view('admin.master', compact('inquiries'));
-    }
-
-    public function tampilBalasPertanyaan(Message $message)
-    {
-
-        return view('admin.master', compact('message'));
-    }
-
-    public function balasPertanyaan(Request $request)
-    {
-
-        $request->validate([
-            'message' => 'required|string|max:2500|min:10',
-        ]);
-
-        $message = new UserEmail;
-        $message->receiver_id = request('receiverid');
-        $message->sender_id = auth()->user()->id;
-        $message->senderMail = auth()->user()->email;
-        $message->senderName = 'Administrator';
-        $message->phoneNo = auth()->user()->phoneNo;
-        $message->subject = request('subject');
-        $message->message = request('message');
-        $message->property_url = '/';
-        $message->save();
-
-        $request->name = 'Administrator';
-        $request->email = auth()->user()->email;
-        $request->pno = '0112563123';
-        $request->property_url = '/';
-
-        \Mail::to(request('receiver'))->send(new ContactMail($request));
-
-        Alert::success('Pesan telah berhasil dikirim!', 'Pesan Terkirim')->autoclose(3000);
-
-        return back();
-    }
-
-    public function hapusPertanyaan(Message $message)
-    {
-
-        DB::table('messages')->where('id', '=', $message->id)->delete();
-        Alert::success('Permintaan telah berhasil dihapus!', 'Inquery Deleted!')->autoclose(3000);
-        return back();
     }
 
 }

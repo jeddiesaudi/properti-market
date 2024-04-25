@@ -67,8 +67,8 @@
             @include('profil.hapusakun')
           @elseif(Request::is('profil/propertisg'))
             @include('profil.propertisg')
-          @elseif(Request::is('profil/rumah/*/edit'))
-            @include('profil.editrumah')  
+          @elseif(Request::is('profil/propertisg/*/edit'))
+            @include('profil.editpropertisg')  
           @else
             @include('profil.dashboard')
           

@@ -3,7 +3,7 @@
     <nav class="breadcrumb has-arrow-separator profileback breadcrumbcss" aria-label="breadcrumbs">
         <ul>
             <li><a href="/profil">Profil</a></li>
-            <li class="is-active"><a href="/profil">Edit Rumah</a></li>
+            <li class="is-active"><a href="/profil">Edit Properti</a></li>
         </ul>
     </nav>
     <div class="columns is-mobile is-centered">
@@ -33,7 +33,7 @@
                     height: 300px;
                 }
             </style>
-            <h1 class="title has-text-centered">Edit Rumah</h1>
+            <h1 class="title has-text-centered">Edit Properti</h1>
             <form method="POST" action="" enctype="multipart/form-data">
                 @csrf
                 <div class="columns">

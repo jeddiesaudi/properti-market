@@ -21,12 +21,7 @@ class PropertiSGController extends Controller
         return view('hasil.tampilpropertiSG', compact('house'));
     }
 
-    public function tampilRumahAdmin(Property $house)
-    {
-        return view('hasil.tampilrumah', compact('house'));
-    }
-
-    public function cariRumah(Request $request)
+    public function cariPropertiSG(Request $request)
     {
         $keyword = $request->input('searchquery');
         $room = $request->input('room');
@@ -86,7 +81,7 @@ class PropertiSGController extends Controller
         return view('hasil.hasilrumah', compact('houses'));
     }
 
-    public function tampilEditRumah(Rumah $house)
+    public function tampilEditPropertiSG(PropertiSG $house)
     {
         if ($house->property->user_id == auth()->id()) {
 
@@ -111,7 +106,7 @@ class PropertiSGController extends Controller
         }
     }
 
-    public function editRumah(Request $request)
+    public function editPropertiSG(Request $request)
     {
 
         $property = Property::find(request('propertyid'));
@@ -173,14 +168,14 @@ class PropertiSGController extends Controller
         }
     }
 
-    public function hapusRumah(Rumah $house)
+    public function hapusPropertiSG(PropertiSG $house)
     {
 
         if ($house->property->user_id == auth()->id() || Auth::guard('admin')->check()) {
 
-            $dir_rumah=$house->property->type;
+            $dir_prop=$house->property->type;
             $arr_img=array($house->property->images);
-            $dir=public_path('uploads/property/'.strtolower($dir_rumah).'/');
+            $dir=public_path('uploads/property/'.strtolower($dir_prop).'/');
                 foreach($arr_img as $img) {
                     $j=explode(",",$house->property->images);
                     for($i=0;$i< count($j); $i++){
@@ -189,20 +184,6 @@ class PropertiSGController extends Controller
                         DB::table('properties')->where('id', '=', $house->property->id)->delete();
                     }
                 }
-
-            if (Auth::guard('admin')->check()) {
-
-                $message = new MailNotification;
-                $message->receiver_email = $house->property->user->email;
-                $message->receiver_name = $house->property->user->name;
-                $message->property_name = $house->property->name;
-                $message->property_location = $house->property->city;
-                $message->property_createdOn = $house->property->created_at;
-                $message->status = 'Property dihapus';
-                $message->subject = "Properti Anda telah dihapus!";
-
-                \Mail::to($message->receiver_email)->send(new EmailNotification($message));
-            }
 
             Alert::success('Properti Anda telah berhasil dihapus!', 'Sukses Dihapus!')->autoclose(3000);
             return back();
@@ -214,14 +195,14 @@ class PropertiSGController extends Controller
         }
     }
 
-    public function hapusRumahAdmin(Property $house)
+    public function hapusPropertiSGAdmin(Property $house)
     {
 
         if ($house->user_id == auth()->id() || Auth::guard('admin')->check()) {
 
-            $dir_rumah=$house->type;
+            $dir_prop=$house->type;
             $arr_img=array($house->images);
-            $dir=public_path('uploads/property/'.strtolower($dir_rumah).'/');
+            $dir=public_path('uploads/property/'.strtolower($dir_prop).'/');
                 foreach($arr_img as $img) {
                     $j=explode(",",$house->images);
                     for($i=0;$i< count($j); $i++){
@@ -230,20 +211,6 @@ class PropertiSGController extends Controller
                         DB::table('properties')->where('id', '=', $house->id)->delete();
                     }
                 }
-
-            if (Auth::guard('admin')->check()) {
-
-                $message = new MailNotification;
-                $message->receiver_email = $house->user->email;
-                $message->receiver_name = $house->user->name;
-                $message->property_name = $house->name;
-                $message->property_location = $house->city;
-                $message->property_createdOn = $house->created_at;
-                $message->status = 'Property dihapus';
-                $message->subject = "Properti Anda telah dihapus!";
-
-                \Mail::to($message->receiver_email)->send(new EmailNotification($message));
-            }
 
             Alert::success('Properti Anda telah berhasil dihapus!', 'Sukses Dihapus!')->autoclose(3000);
             return back();

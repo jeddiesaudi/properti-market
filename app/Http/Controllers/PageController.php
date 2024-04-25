@@ -46,7 +46,7 @@ class PageController extends Controller
     }
 
     // Search Result Methods
-    public function carirumah()
+    public function cariPropertiSG()
     {
         $houses = PropertiSG::all();
         return view('hasil.hasilrumah',compact('houses'));

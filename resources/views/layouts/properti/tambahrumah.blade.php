@@ -26,7 +26,7 @@
 <body>
     @include('hasil.navhasil')
     <br>
-    <div class="title has-text-centered">Tambah Rumah</div>
+    <div class="title has-text-centered">Tambah Properti</div>
     <br>
     <div class="container">
         <div class="columns is-mobile is-centered">
@@ -54,6 +54,23 @@
                             <span>
                                 <strong class="has-text-danger">{{ $errors->first('name') }}</strong>
                             </span> @endif
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <label for="name">Jenis Properti</label>
+                            <br>
+                            <div class="select is-primary is-full {{ $errors->has('type') ? ' is-danger' : '' }}">
+                                <select name="type">
+                                    <option value="Rumah">Rumah</option>
+                                    <option value="Ruko">Ruko</option>
+                                </select>
+                                @if ($errors->has('type'))
+                                <span>
+                                    <strong class="has-text-danger">{{ $errors->first('type') }}</strong>
+                                </span> @endif
+                            </div>
+
                         </div>
                     </div>
                     <div class="field">
@@ -144,7 +161,7 @@
                     <div class="field">
                         <div class="control is-pulled-right">
                             <button type="submit" class="button is-primary">
-                                Tambah Rumah
+                                Tambah Properti
                             </button>
                             <button type="reset" class="button is-warning">
                                 Batal

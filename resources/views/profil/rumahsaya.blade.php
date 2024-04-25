@@ -4,7 +4,7 @@
     <nav class="breadcrumb has-arrow-separator has-background-white" aria-label="breadcrumbs">
         <ul>
             <li><a href="/profil">Profil</a></li>
-            <li class="is-active"><a href="/profil">Rumah Saya</a></li>
+            <li class="is-active"><a href="/profil">Properti Sabar Ganda</a></li>
         </ul>
     </nav>
     <div class="containerx">

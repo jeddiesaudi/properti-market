@@ -27,17 +27,11 @@
         </div>
       @endif
         <div class="columns dashboxes profileback">
-            <div class="column has-text-centered selecticon" onclick="location.href='/tambahproperti'">
+            <div class="column has-text-centered selecticon" onclick="location.href='/tambah/rumah'">
               <span class="icon has-text-centered is-large">
                 <i class="fas fa-home fa-4x"></i>
               </span>
               <h6 class="is-uppercase has-text-weight-bold">Tambah Properti</h6>
-            </div>
-            <div class="column has-text-centered selecticon" onclick="location.href='/profil/pesan'">
-              <span class="icon has-text-centered is-large">
-                <i class="fas fa-comments fa-4x"></i>
-              </span>
-              <h6 class="is-uppercase has-text-weight-bold">Pesan Masuk</h6>
             </div>
             <div class="column has-text-centered selecticon" onclick="location.href='/profil/editprofil'">
               <span class="icon has-text-centered is-large">

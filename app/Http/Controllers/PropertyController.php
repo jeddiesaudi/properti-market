@@ -20,6 +20,7 @@ class PropertyController extends Controller
             'name' => 'required|max:50|min:3',
             'city' => 'required',
             'description' => 'required',
+            'type' => 'required',
             'filename' => 'required',
             'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             'amount' => 'required|regex:/^\d+(\.\d{1,2})?$/',        
@@ -28,7 +29,7 @@ class PropertyController extends Controller
         ]);
 
         $property = new Property;
-        $rumah_dir=$property->type = 'Rumah';
+        $rumah_dir=$property->type = request('type');
 
         if($request->hasfile('filename'))
          {

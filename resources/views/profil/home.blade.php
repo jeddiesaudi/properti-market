@@ -45,6 +45,7 @@
                   Properti Sabar Ganda
                 </p>
                 <ul class="menu-list listitem">
+                  <li><a href="/tambah/rumah">Tambah Properti</a></li>
                   <li><a href="/profil/rumahsaya">Semua Properti</a></li>
                 <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold is-uppercase">
                   Lainnya

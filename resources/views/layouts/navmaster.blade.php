@@ -16,8 +16,8 @@
       <a class="navbar-item menutext thisactive" href="/rumah">
               Beranda
             </a>
-      <a class="navbar-item menutext" href="/tentangkami">
-              Tentang Kami
+      <a class="navbar-item menutext" href="https://wa.me/6212345678"  target="_blank">
+              Hubungi Kami
             </a>
     </div>
 
@@ -52,8 +52,7 @@
               <div class="dropdown-content">
                 <a href="/profil" target="_blank" class="dropdown-item">Profil Saya</a>
                 <a href="/tambahproperti" class="dropdown-item">Tambah Properti</a>
-                <a href="/profil/gantipassword target="_blank" class="dropdown-item">Ganti Password</a>
-                <a href="/kontak_kami" class="dropdown-item">Kontak</a>
+                <a href="/profil/gantipassword" class="dropdown-item">Ganti Password</a>
                 <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                           Logout
                         </a>

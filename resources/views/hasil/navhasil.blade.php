@@ -53,28 +53,10 @@
     <div id="belownav" class="navbar-menu below is-centered navsearch">
       <div class="navbar-start">
             <a class="navbar-item menuitemnav" href="/rumah">
-                Rumah
+              Beranda
             </a>
-            <a class="navbar-item menuitemnav" href="/lahan">
-                Lahan
-            </a>
-            <a class="navbar-item menuitemnav" href="/apartemen">
-                Apartemen
-            </a>
-            <a class="navbar-item menuitemnav" href="/gedung">
-                Gedung
-            </a>
-            <a class="navbar-item menuitemnav" href="/gudang">
-              Gudang
-            </a>
-            <a class="navbar-item menuitemnav" href="/blog">
-              Blog
-            </a>
-            <a class="navbar-item menuitemnav" href="/tentangkami">
-              Tentang
-            </a>
-            <a class="navbar-item menuitemnav" href="/kontak_kami">
-              Kontak Kami
+            <a class="navbar-item menuitemnav" href="https://wa.me/6212345678"  target="_blank">
+              Hubungi Kami
             </a>
       </div>
       <div class="navbar-end">

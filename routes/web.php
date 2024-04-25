@@ -51,7 +51,7 @@ Route::get('/tambah/map', [App\Http\Controllers\PageController::class, 'dismap']
 
 Route::get('/rumah/cari', [App\Http\Controllers\PageController::class, 'carirumah']);
 Route::get('/rumah/{house}', [App\Http\Controllers\RumahController::class, 'tampilRumah']);
-Route::get('/admin/rumah/{house}', [App\Http\Controllers\RumahController::class, 'tampilRumahAdmin']);
+Route::get('/admin/rumah/{house}', [App\Http\Controllers\RumahController::class, 'tampilRumah']);
 Route::post('/rumah/{house}', [App\Http\Controllers\RumahController::class, 'cariRumah']);
 Route::post('/rumah/{house}/transaksi', [App\Http\Controllers\TransaksiController::class, 'transaksiRumah']);
 Route::post('/rumah/{house}/kontakpemilik', [App\Http\Controllers\UserEmailController::class, 'kontakRumah']);

@@ -154,7 +154,7 @@
                  </p>
                  <br>
                  <p class="control">
-                    <a class="button is-primary is-inverted is-outlined loginbutton" href="/tentangkami">
+                    <a class="button is-primary is-inverted is-outlined loginbutton" href="https://wa.me/6212345678"  target="_blank">
                       <span>Hubungi Kami</span>
                     </a>
                   </p>

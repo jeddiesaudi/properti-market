@@ -25,20 +25,7 @@
       <div class="navbar-item">
         <div class="field is-grouped">
           @guest
-          <p class="control">
-            <a class="button is-primary is-inverted is-outlined signupbutton" href="{{ route('login') }}">
-                    <span>
-                      Login
-                    </span>
-                  </a>
-          </p>
-          @if (Route::has('register'))
-          <p class="control">
-            <a class="button is-primary is-inverted is-outlined loginbutton" href="{{ route('register') }}">
-                    <span>Register</span>
-                  </a>
-          </p>
-          @endif @else
+          @else
           <div class="dropdown is-hoverable">
             <div class="dropdown-trigger">
               <button class="button is-primary is-inverted is-outlined usermenu" aria-haspopup="true" aria-controls="dropdown-menu3">

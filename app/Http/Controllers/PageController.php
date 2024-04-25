@@ -33,8 +33,7 @@ class PageController extends Controller
     public function __construct()
     {
         $this->middleware(['auth','verified'])->only([
-            'profil', 'gantiPassword', 'editakun', 'favorits',
-            'tampilPesan', 'PesanSaya', 'RumahSaya', 'ApartemenSaya', 'LahanSaya', 'GedungSaya', 'GudangSaya', 'hapusakun', 'tambahProperti', 'tambahRumah','tambahGedung','tambahLahan','tambahApartemen','tambahGudang'
+            'profil', 'gantiPassword', 'editakun', 'PropertiSG', 'hapusakun', 'tambahProperti', 'tambahRumah'
         ]);
     }
     public function index()
@@ -166,7 +165,7 @@ class PageController extends Controller
         return view('profil.home', compact('messages'), array('user' => Auth::user()));
     }
 
-    public function RumahSaya()
+    public function PropertiSG()
     {
         $userId = auth()->id();
         $messages = UserEmail::where(function($query) use ($userId) 

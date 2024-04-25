@@ -46,7 +46,7 @@
                 </p>
                 <ul class="menu-list listitem">
                   <li><a href="/tambah/rumah">Tambah Properti</a></li>
-                  <li><a href="/profil/rumahsaya">Semua Properti</a></li>
+                  <li><a href="/profil/propertisg">Semua Properti</a></li>
                 <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold is-uppercase">
                   Lainnya
                 </p>
@@ -63,44 +63,14 @@
             @include('profil.transaksisaya')
           @elseif(Request::is('profil/editprofil'))
             @include('profil.editprofil')
-          @elseif(Request::is('profil/favoritsaya'))
-            @include('profil.favoritsaya')
-          @elseif(Request::is('profil/pesan/semua'))
-            @include('profil.semuapesan')
-          @elseif(Request::is('profil/pesan'))
-            @include('profil.pesan')
           @elseif(Request::is('profil/terjual'))
             @include('profil.tandaiterjual')
-          @elseif(Request::is('profil/pesan/*/tampil'))
-            @include('profil.lihatpesan')
           @elseif(Request::is('profil/hapusakun'))
             @include('profil.hapusakun')
-          @elseif(Request::is('profil/rumahsaya'))
-            @include('profil.rumahsaya')
-          @elseif(Request::is('profil/lahansaya'))
-            @include('profil.lahansaya')
-          @elseif(Request::is('profil/apartemensaya'))
-            @include('profil.apartemensaya')
-          @elseif(Request::is('profil/gedungsaya'))
-            @include('profil.gedungsaya')
-          @elseif(Request::is('profil/gudangsaya'))
-            @include('profil.gudangsaya')
-          @elseif(Request::is('profil/semuatransaksi'))
-            @include('profil.transaksi')
-          @elseif(Request::is('profil/transaksi/*/kontak'))
-            @include('profil.kontaktransaksi')
-          @elseif(Request::is('profil/transaksi/*/kontak/pemilik'))
-            @include('profil.kontakpemiliktransaksi')
+          @elseif(Request::is('profil/propertisg'))
+            @include('profil.propertisg')
           @elseif(Request::is('profil/rumah/*/edit'))
-            @include('profil.editrumah')
-          @elseif(Request::is('profil/lahan/*/edit'))
-            @include('profil.editlahan')
-          @elseif(Request::is('profil/gedung/*/edit'))
-            @include('profil.editgedung')
-          @elseif(Request::is('profil/apartemen/*/edit'))
-            @include('profil.editapartemen')
-          @elseif(Request::is('profil/gudang/*/edit'))
-            @include('profil.editgudang')  
+            @include('profil.editrumah')  
           @else
             @include('profil.dashboard')
           

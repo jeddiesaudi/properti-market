@@ -29,19 +29,19 @@ Route::get('/tambah/propertisg', [App\Http\Controllers\PageController::class, 't
 Route::post('/tambah/propertisg', [App\Http\Controllers\PropertyController::class, 'tambahPropertiSG']);
 
 Route::get('/rumah/cari', [App\Http\Controllers\PageController::class, 'carirumah']);
-Route::get('/rumah/{house}', [App\Http\Controllers\RumahController::class, 'tampilRumah']);
-Route::get('/admin/rumah/{house}', [App\Http\Controllers\RumahController::class, 'tampilRumah']);
-Route::post('/rumah/{house}', [App\Http\Controllers\RumahController::class, 'cariRumah']);
+Route::get('/propertisg/{house}', [App\Http\Controllers\PropertiSGController::class, 'tampilPropertiSG']);
+Route::get('/admin/rumah/{house}', [App\Http\Controllers\PropertiSGController::class, 'tampilPropertiSG']);
+Route::post('/rumah/{house}', [App\Http\Controllers\PropertiSGController::class, 'cariRumah']);
 Route::post('/rumah/{house}/transaksi', [App\Http\Controllers\TransaksiController::class, 'transaksiRumah']);
 Route::post('/rumah/{house}/kontakpemilik', [App\Http\Controllers\UserEmailController::class, 'kontakRumah']);
 Route::post('/rumah/{house}/report', [App\Http\Controllers\ReportPropertyController::class, 'reportRumah']);
 Route::get('/rumah/{house}/favorit', [App\Http\Controllers\FavoritController::class, 'RumahFavorit']);
-Route::get('/profil/rumah/{house}/edit', [App\Http\Controllers\RumahController::class, 'tampilEditRumah'])->middleware('auth');
+Route::get('/profil/rumah/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'tampilEditRumah'])->middleware('auth');
 Route::get('/admin/rumah/{house}/edit', [App\Http\Controllers\AdminController::class, 'tampilAdminEditRumah'])->middleware('auth:admin');
-Route::post('/admin/rumah/{house}/edit', [App\Http\Controllers\RumahController::class, 'editRumah']);
-Route::post('/profil/rumah/{house}/edit', [App\Http\Controllers\RumahController::class, 'editRumah']);
-Route::post('/profil/rumah/{house}/hapus', [App\Http\Controllers\RumahController::class, 'hapusRumah']);
-Route::post('/admin/rumah/{house}/hapus', [App\Http\Controllers\RumahController::class, 'hapusRumah'])->middleware('auth:admin');
+Route::post('/admin/rumah/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'editRumah']);
+Route::post('/profil/rumah/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'editRumah']);
+Route::post('/profil/rumah/{house}/hapus', [App\Http\Controllers\PropertiSGController::class, 'hapusRumah']);
+Route::post('/admin/rumah/{house}/hapus', [App\Http\Controllers\PropertiSGController::class, 'hapusRumah'])->middleware('auth:admin');
 
 Route::get('/lahan/cari', [App\Http\Controllers\PageController::class, 'carilahan']);
 Route::get('/lahan/{land}', [App\Http\Controllers\LahanController::class, 'tampilLahan']);

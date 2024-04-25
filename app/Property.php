@@ -16,40 +16,10 @@ class Property extends Model
 
     }
 
-    public function land(){
-
-        return $this->belongsTo(Lahan::class);
-
-    }
-
-    public function building(){
-
-        return $this->belongsTo(Gedung::class);
-
-    }
-
-    public function apartment(){
-
-        return $this->belongsTo(Apartemen::class);
-
-    }
-
-    public function warehouse(){
-
-        return $this->belongsTo(Gedung::class);
-
-    }
-
     public function user(){
 
         return $this->belongsTo(User::class);
         
-    }
-
-    public function offers(){
-
-        return $this->hasMany(Transaksi::class);
-
     }
 
     public function reportproperties(){

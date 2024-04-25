@@ -17,7 +17,7 @@
                             <span class="has-text-dark">Lokasi :</span> {{$house->property->city}} <br>
                             <span class="has-text-dark">Harga :</span> Rp. {{number_format($house->property->amount,2)}} <br>
                             <span class="has-text-dark">Periode :</span> {{$house->property->periode}} Bulan<br>
-                            <span class="has-text-dark">Stok :</span> {{$house->stok}}
+                            <span class="has-text-dark">Stok :</span> {{$house->stok}} Tersedia
                             
                         </p>
                     </div>
@@ -25,7 +25,7 @@
 
                 <div class="content">
                     <div class="buttons is-pulled-right">
-                        <button class="button is-success is-pulled-right" onclick="window.open('/rumah/{{$house->id}}','_blank');">Lihat</button>
+                        <button class="button is-success is-pulled-right" onclick="window.open('/propertisg/{{$house->id}}','_blank');">Lihat</button>
                         <button class="button is-warning is-pulled-right" onclick="window.open('/profil/rumah/{{$house->id}}/edit','_blank');">Edit</button>
                         <form action="/profil/rumah/{{$house->id}}/hapus" method="post">
                             @csrf

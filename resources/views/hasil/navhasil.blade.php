@@ -5,26 +5,6 @@
         </a>       
         <div class="buttons is-centered">
         @guest
-        @if(Auth::guard('admin')->check())
-          <a class="button is-primary is-centered nounderlinebtn" href="/admin">
-            Profil
-          </a>
-          @else
-          <a class="button is-light is-centered nounnounderlinebtn" href="/login">
-            Login
-          </a>
-          @endif
-        @if (Route::has('register'))
-          @if(Auth::guard('admin')->check())
-          <a class="button is-light is-centered nounderlinebtn" href="/logout">
-            Logout
-          </a>
-          @else
-          <a class="button is-primary is-centered nounnounderlinebtn" href="/register">
-              <strong>Register</strong>
-          </a>
-          @endif
-        @endif
         @else
           @if(Auth::guard('admin')->check())
           <a class="button is-primary is-centered nounderlinebtn" href="/admin">

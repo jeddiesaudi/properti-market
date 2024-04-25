@@ -231,13 +231,15 @@
                                             <span class="has-text-dark">Nama :</span> {{$house->property->name}} <br>
                                             <span class="has-text-dark">Jenis :</span> {{$house->property->type}} <br>
                                             <span class="has-text-dark">Lokasi :</span> {{$house->property->city}} <br>
-                                            <span class="has-text-dark">Harga :</span> Rp. {{number_format($house->property->amount,2)}}</p>
+                                            <span class="has-text-dark">Harga :</span> Rp. {{number_format($house->property->amount,2)}} <br>
+                                            <span class="has-text-dark">Periode :</span> {{$house->property->periode}} Bulan<br>
+                                            <span class="has-text-dark">Stok :</span> {{$house->stok}} Tersedia</p>
                                     </div>
                                 </div>
                                 <div class="content">
                                     <small class media-left>{{$house->property->created_at->diffForHumans()}}</small>
                                     <div class="buttons is-pulled-right">
-                                        <button class="button is-success is-pulled-right" onclick="window.open('/rumah/{{$house->id}}','_blank');">Detail</button>
+                                        <button class="button is-success is-pulled-right" onclick="window.open('/propertisg/{{$house->id}}','_blank');">Lihat</button>
                                     </div>
                                 </div>
                             </div>

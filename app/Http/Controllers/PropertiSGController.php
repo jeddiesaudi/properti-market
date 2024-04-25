@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use Alert;
-use App\Rumah;
 use App\Property;
 use App\UserEmail;
 use App\MailNotification;
 use App\Mail\EmailNotification;
+use App\PropertiSG;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\File;
 
-class RumahController extends Controller
+class PropertiSGController extends Controller
 {
-    public function tampilRumah(Rumah $house)
+    public function tampilPropertiSG(PropertiSG $house)
     {
-        return view('hasil.tampilrumah', compact('house'));
+        return view('hasil.tampilpropertiSG', compact('house'));
     }
 
     public function tampilRumahAdmin(Property $house)

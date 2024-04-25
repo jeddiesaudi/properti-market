@@ -199,7 +199,7 @@ class AdminController extends Controller
     public function tampilSemuaRumah()
     {
 
-        $properties = Rumah::whereHas('property', function ($query) {
+        $properties = PropertiSG::whereHas('property', function ($query) {
 
             $query->where('type', '=', 'rumah');
 

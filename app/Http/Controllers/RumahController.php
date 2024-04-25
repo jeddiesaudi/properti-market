@@ -57,7 +57,7 @@ class RumahController extends Controller
             $outdoor = "%%";
         }
 
-        $houses = Rumah::whereHas('property', function ($query) use ($room) {
+        $houses = PropertiSG::whereHas('property', function ($query) use ($room) {
             $query->where('noOfRooms', '>=', $room);
         })->whereHas('property', function ($query) use ($keyword) {
             $query->where(function ($query) use ($keyword) {
@@ -115,7 +115,7 @@ class RumahController extends Controller
     {
 
         $property = Property::find(request('propertyid'));
-        $house = Rumah::find(request('houseid'));
+        $house = PropertiSG::find(request('houseid'));
 
         if ($property->user_id == auth()->id() || Auth::guard('admin')->check()) {
 

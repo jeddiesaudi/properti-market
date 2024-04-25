@@ -4,8 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Rumah extends Model
+class PropertiSG extends Model
 {
+    protected $table = 'rumahs';
+
     protected $fillable = [
         'stok'
     ];
@@ -13,12 +15,6 @@ class Rumah extends Model
     public function property(){
 
         return $this->belongsTo(Property::class);
-
-    }
-
-    public function offers(){
-
-        return $this->hasMany(Offer::class);
 
     }
 

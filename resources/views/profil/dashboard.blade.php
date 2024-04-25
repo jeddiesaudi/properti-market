@@ -27,7 +27,7 @@
         </div>
       @endif
         <div class="columns dashboxes profileback">
-            <div class="column has-text-centered selecticon" onclick="location.href='/tambah/rumah'">
+            <div class="column has-text-centered selecticon" onclick="location.href='/tambah/propertisg'">
               <span class="icon has-text-centered is-large">
                 <i class="fas fa-home fa-4x"></i>
               </span>

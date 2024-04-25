@@ -23,31 +23,10 @@ Route::post('/admin/login', [App\Http\Controllers\Auth\AdminLoginController::cla
 Route::get('/admin/logout', [App\Http\Controllers\Auth\AdminLoginController::class, 'logout'])->name('admin.logout');
 
 Route::get('/home', [App\Http\Controllers\PageController::class, 'index']);
-Route::get('/rumah', [App\Http\Controllers\PageController::class, 'index'])->name('index');
-Route::get('/lahan', [App\Http\Controllers\PageController::class, 'lahan'])->name('lahan');
-Route::get('/apartemen', [App\Http\Controllers\PageController::class, 'apartemen'])->name('apartemen');
-Route::get('/gedung', [App\Http\Controllers\PageController::class, 'gedung'])->name('gedung');
-Route::get('/gudang', [App\Http\Controllers\PageController::class, 'gudang'])->name('gudang');
-Route::get('/blog', [App\Http\Controllers\PageController::class, 'blog'])->name('blog');
-Route::get('/tentangkami', [App\Http\Controllers\PageController::class, 'tentangkami'])->name('tentangkami');
-Route::get('/kontak_kami', [App\Http\Controllers\PageController::class, 'kontak_kami'])->name('kontak_kami');
+Route::get('/beranda', [App\Http\Controllers\PageController::class, 'index'])->name('index');
 
-Route::get('/tambahproperti', [App\Http\Controllers\PageController::class, 'tambahProperti']);
-Route::get('/tambah/rumah', [App\Http\Controllers\PageController::class, 'tambahRumah']);
-Route::post('/tambah/rumah', [App\Http\Controllers\PropertyController::class, 'tambahRumah']);
-Route::get('/tambah/lahan', [App\Http\Controllers\PageController::class, 'tambahLahan']);
-Route::post('/tambah/lahan', [App\Http\Controllers\PropertyController::class, 'tambahLahan']);
-Route::get('/tambah/gedung', [App\Http\Controllers\PageController::class, 'tambahGedung']);
-Route::post('/tambah/gedung', [App\Http\Controllers\PropertyController::class, 'tambahGedung']);
-Route::get('/tambah/apartemen', [App\Http\Controllers\PageController::class, 'tambahApartemen']);
-Route::post('/tambah/apartemen', [App\Http\Controllers\PropertyController::class, 'tambahApartemen']);
-Route::get('/tambah/gudang', [App\Http\Controllers\PageController::class, 'tambahGudang']);
-Route::post('/tambah/gudang', [App\Http\Controllers\PropertyController::class, 'tambahGudang']);
-
-
-Route::get('/tambah/map', [App\Http\Controllers\PageController::class, 'dismap']);
-
-
+Route::get('/tambah/propertisg', [App\Http\Controllers\PageController::class, 'tambahPropertiSG']);
+Route::post('/tambah/propertisg', [App\Http\Controllers\PropertyController::class, 'tambahPropertiSG']);
 
 Route::get('/rumah/cari', [App\Http\Controllers\PageController::class, 'carirumah']);
 Route::get('/rumah/{house}', [App\Http\Controllers\RumahController::class, 'tampilRumah']);

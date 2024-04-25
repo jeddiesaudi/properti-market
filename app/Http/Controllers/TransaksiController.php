@@ -41,9 +41,9 @@ class TransaksiController extends Controller
             return back()->withErrors($validator);
         }
 
-        if (Rumah::find(request('houseid'))->offer > 0) {
+        if (PropertiSG::find(request('houseid'))->offer > 0) {
 
-            $currentMax = Rumah::find(request('houseid'))->offer->sortBy('offerAmount')->last()->offerAmount;
+            $currentMax = PropertiSG::find(request('houseid'))->offer->sortBy('offerAmount')->last()->offerAmount;
 
             if ($currentMax > request('offeramount')) {
 

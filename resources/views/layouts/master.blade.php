@@ -29,7 +29,7 @@
                    <div class="tabs">
                     <ul>
                       <li class="is-active has-background-primary tabitem">
-                        <a href="/rumah">
+                        <a href="/beranda">
                                   <span class="has-text-white">Rumah</span>
                                 </a>
                       </li>

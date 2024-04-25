@@ -12,7 +12,7 @@ class Property extends Model
 
     public function house(){
 
-        return $this->belongsTo(Rumah::class);
+        return $this->belongsTo(PropertiSG::class);
 
     }
 

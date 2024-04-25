@@ -52,7 +52,7 @@
   
     <div id="belownav" class="navbar-menu below is-centered navsearch">
       <div class="navbar-start">
-            <a class="navbar-item menuitemnav" href="/rumah">
+            <a class="navbar-item menuitemnav" href="/beranda">
               Beranda
             </a>
             <a class="navbar-item menuitemnav" href="https://wa.me/6212345678"  target="_blank">

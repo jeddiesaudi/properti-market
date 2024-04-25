@@ -38,7 +38,7 @@
             <div class="dropdown-menu" id="dropdown-menu3" role="menu">
               <div class="dropdown-content">
                 <a href="/profil" target="_blank" class="dropdown-item">Profil Saya</a>
-                <a href="/tambahproperti" class="dropdown-item">Tambah Properti</a>
+                <a href="/tambah/propertisg" class="dropdown-item">Tambah Properti</a>
                 <a href="/profil/gantipassword" class="dropdown-item">Ganti Password</a>
                 <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                           Logout

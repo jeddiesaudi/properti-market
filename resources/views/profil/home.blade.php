@@ -34,19 +34,19 @@
                   <li><a href="/profil">Dashboard</a></li>
                 </ul>
                 <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold is-uppercase">
-                  Administrasi
+                  Manajemen Properti
+                </p>
+                <ul class="menu-list listitem">
+                  <li><a href="/tambah/propertisg">Tambah Properti</a></li>
+                  <li><a href="/profil/propertisg">Semua Properti</a></li>
+                <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold is-uppercase">
+                  Pengaturan Akun
                 </p>
                 <ul class="menu-list listitem">
                   <li><a href="/profil/editprofil">Edit Akun</a></li>
                   <li><a href="/profil/gantipassword">Ganti Password</a></li>
                   <li><a href="/profil/hapusakun">Hapus Akun</a></li>
                 </ul>
-                <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold is-uppercase">
-                  Properti Sabar Ganda
-                </p>
-                <ul class="menu-list listitem">
-                  <li><a href="/tambah/rumah">Tambah Properti</a></li>
-                  <li><a href="/profil/propertisg">Semua Properti</a></li>
                 <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold is-uppercase">
                   Lainnya
                 </p>
@@ -59,8 +59,6 @@
             @include('profil.dashboard')
           @elseif(Request::is('profil/gantipassword'))
             @include('profil.gantipassword')
-          @elseif(Request::is('profil/transaksisaya'))
-            @include('profil.transaksisaya')
           @elseif(Request::is('profil/editprofil'))
             @include('profil.editprofil')
           @elseif(Request::is('profil/terjual'))

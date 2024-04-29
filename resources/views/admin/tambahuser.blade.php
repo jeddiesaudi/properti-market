@@ -29,7 +29,7 @@
     <div class="card cardmargin">
         <div class="containerx" style="padding: 0 10% 0 10%;">
             <h1 class="title has-text-centered">Tambah User</h1>
-            <form action="/admin/user/add" method="post" enctype="multipart/form-data">
+            <form action="/admin/user/tambah" method="post" enctype="multipart/form-data">
               @csrf
               <div class="field">
                 <label class="label">Nama</label>

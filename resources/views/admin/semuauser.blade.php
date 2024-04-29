@@ -35,7 +35,6 @@
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Id User</th>
                   <th>Nama User</th>
                   <th>Email User</th>
                   <th>Kelengkapan Profil</th>
@@ -48,7 +47,6 @@
               <tfoot>
                 <tr>
                   <th>No</th>
-                  <th>Id User</th>
                   <th>Nama User</th>
                   <th>Email User</th>
                   <th>Kelengkapan Profil</th>
@@ -62,7 +60,6 @@
                 @foreach ($users as $key=>$user)
                 <tr>
                     <td>{{$key+1}}</td>
-                    <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>

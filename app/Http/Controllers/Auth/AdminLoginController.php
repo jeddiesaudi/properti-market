@@ -21,42 +21,21 @@ class AdminLoginController extends Controller
 
     public function login(Request $request)
     {
-        // $url = 'https://www.google.com/recaptcha/api/siteverify';
-        // $data = [
-        //     'secret' => '6LfXZK4UAAAAAMWq3iwulLu1EmayOyMHNmpExl1v',
-        //     'response' => request('recaptcha'),
-        // ];
+    
+        $this->validateLogin($request);
 
-        // $options = [
-        //     'http' => [
-        //         'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-        //         'method' => 'POST',
-        //         'content' => http_build_query($data),
-        //     ],
-        // ];
-        // $context = stream_context_create($options);
-        // $response = file_get_contents($url, false, $context);
-        // $responseKeys = json_decode($response, true);
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+            return redirect()->intended((route('admin.dashboard')));
+        }
 
-        // if ($responseKeys["success"]) {
-
-            $this->validateLogin($request);
-
-            if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
-                return redirect()->intended((route('admin.dashboard')));
-            }
-
-            return $this->sendFailedLoginResponse($request);
-        // } else {
-        //     return back()->with('message', 'Captcha Error! Please Refresh Page or Clear Your Cookies');
-        // }
+        return $this->sendFailedLoginResponse($request);
     }
+
     protected function validateLogin(Request $request)
     {
         $request->validate([
             $this->username() => 'required|email',
             'password' => 'required|string',
-            // 'g-recaptcha-response' => 'recaptcha',
         ]);
     }
 
@@ -78,6 +57,6 @@ class AdminLoginController extends Controller
         Auth::guard('admin')->logout();
         $request->session()->flush();
         $request->session()->regenerate();
-        return redirect('/admin');
+        return redirect('/');
     }
 }

@@ -51,11 +51,6 @@
         </p>
         <ul class="menu-list adminlistitem">
           <li><a href="/admin/properti/semua">Semua</a></li>
-          <li><a href="/admin/properti/rumah">Rumah</a></li>
-          <li><a href="/admin/properti/lahan">Lahan</a></li>
-          <li><a href="/admin/properti/gedung">Gedung</a></li>
-          <li><a href="/admin/properti/apartemen">Apartemen</a></li>
-          <li><a href="/admin/properti/gudang">Gudang</a></li>
         </ul>
         <p class="menu-label has-text-dark is-4 is-size-7 has-text-weight-bold is-uppercase">
           <i class="fas fa-lock"></i> Manajemen Report
@@ -120,16 +115,6 @@
     @include('profil.editgudang')
     @elseif(Request::is('admin/properti/semua'))
     @include('admin.semuaproperti')
-    @elseif(Request::is('admin/properti/rumah'))
-    @include('admin.semuarumah')
-    @elseif(Request::is('admin/properti/lahan'))
-    @include('admin.semualahan')
-    @elseif(Request::is('admin/properti/gedung'))
-    @include('admin.semuagedung')
-    @elseif(Request::is('admin/properti/apartemen'))
-    @include('admin.semua_apartemen')
-    @elseif(Request::is('admin/properti/gudang'))
-    @include('admin.semuagudang')
     @elseif(Request::is('admin/user/semua'))
     @include('admin.semuauser')
     @elseif(Request::is('admin/semua'))
@@ -140,12 +125,6 @@
     @include('admin.editadmin')
     @elseif(Request::is('admin/report'))
     @include('admin.report')
-    @elseif(Request::is('admin/artikel'))
-    @include('admin.semua_artikel')
-    @elseif(Request::is('admin/pertanyaan/tampil'))
-    @include('admin.semuapertanyaan')
-    @elseif(Request::is('admin/pertanyaan/*/balas'))
-    @include('admin.balaspertanyaan')
     @else
     @include('admin.dashboard') @endif
     <div id="myModal" class="modal column is-half is-offset-one-quarter">

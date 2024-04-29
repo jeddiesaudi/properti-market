@@ -33,9 +33,8 @@ class PageController extends Controller
     }
     public function index()
     {
-        $articles = Artikel::limit(3)->orderBy('id','desc')->get();
         $houses = PropertiSG::limit(10)->orderBy('id','desc')->get();
-        return view('layouts.master',compact('articles','houses'));
+        return view('layouts.master',compact('houses'));
     }
 
     //Logout Route

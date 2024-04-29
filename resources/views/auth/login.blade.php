@@ -30,7 +30,7 @@
                 </figure>
             </a>
             <div class="is-mobile textboxlogin">
-                <p class="title has-text-primary is-4 has-text-centered">Login Akun Admin Properti</p>
+                <p class="title has-text-primary is-4 has-text-centered">Login Akun Staf Properti</p>
                 <p class="subtitle  has-text-centered is-size-7 tinytextlogin">Masukkan email dan kata sandi Anda untuk masuk ke akun admin properti.</p>
             </div>
             <div class="loginform">

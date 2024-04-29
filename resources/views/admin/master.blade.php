@@ -53,12 +53,6 @@
           <li><a href="/admin/properti/semua">Semua</a></li>
         </ul>
         <p class="menu-label has-text-dark is-4 is-size-7 has-text-weight-bold is-uppercase">
-          <i class="fas fa-lock"></i> Manajemen Report
-        </p>
-        <ul class="menu-list adminlistitem">
-          <li><a href="/admin/report"> Lihat Report</a></li>
-        </ul>
-        <p class="menu-label has-text-dark is-4 is-size-7 has-text-weight-bold is-uppercase">
           <i class="fas fa-users"></i> Manajemen User
         </p>
         <ul class="menu-list adminlistitem">
@@ -90,8 +84,6 @@
     @include('admin.edituser')
     @elseif(Request::is('admin/user/tambah'))
     @include('admin.tambahuser')
-    @elseif(Request::is('admin/rumah/*/edit'))
-    @include('profil.editrumah')
     @elseif(Request::is('admin/properti/semua'))
     @include('admin.semuaproperti')
     @elseif(Request::is('admin/user/semua'))
@@ -102,8 +94,6 @@
     @include('admin.tambahadmin')
     @elseif(Request::is('admin/*/edit'))
     @include('admin.editadmin')
-    @elseif(Request::is('admin/report'))
-    @include('admin.report')
     @else
     @include('admin.dashboard') @endif
     <div id="myModal" class="modal column is-half is-offset-one-quarter">

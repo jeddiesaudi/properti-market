@@ -68,12 +68,13 @@
       <thead>
         <tr>
           <th>No</th>
-          <th>ID Properti</th>
           <th>Nama Properti</th>
           <th>Lokasi Properti</th>
           <th>Jenis Properti</th>
           <th>Harga Properti</th>
           <th>Periode Sewa</th>
+          <th>Tersedia</th>
+          <th>Tersewa</th>
           <th>Ditambah Oleh</th>
           <th>Lihat</th>
         </tr>
@@ -81,12 +82,13 @@
       <tfoot>
         <tr>
           <th>No</th>
-          <th>ID Properti</th>
           <th>Nama Properti</th>
           <th>Lokasi Properti</th>
           <th>Jenis Properti</th>
           <th>Harga Properti</th>
           <th>Periode Sewa</th>
+          <th>Tersedia</th>
+          <th>Tersewa</th>
           <th>Ditambah Oleh</th>
           <th>Lihat</th>
         </tr>
@@ -95,12 +97,13 @@
         @foreach ($properties as $key=>$property)
         <tr>
           <td>{{$key+1}}</td>
-          <td>{{$property->id}}</td>
           <td>{{$property->name}}</td>
           <td>{{$property->city}}</td>
           <td>{{$property->type}}</td>
           <td>{{number_format($property->amount,2)}}</td>
           <td>{{$property->periode}} Bulan</td>
+          <td>0</td>
+          <td>0</td>
           <td>{{$property->user->name}}</td>
           <td><a href="/admin/propertisg/{{$property->id}}" class="button is-success nounnounderlinebtn"
               target="_blank">Lihat</a></td>
@@ -116,7 +119,6 @@
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Id User</th>
                   <th>Nama User</th>
                   <th>Email User</th>
                   <th>Kelengkapan Profil</th>
@@ -127,7 +129,6 @@
               <tfoot>
                 <tr>
                   <th>No</th>
-                  <th>Id User</th>
                   <th>Nama User</th>
                   <th>Email User</th>
                   <th>Kelengkapan Profil</th>
@@ -139,15 +140,14 @@
                 @foreach ($users as $key=>$user)
                 <tr>
                     <td>{{$key+1}}</td>
-                    <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>
-                        @if($user->NIC==null || $user->description==null || $user->address==null || $user->city==null || $user->gender==null || $user->NIC==null || $user->birthday==null || $user->phoneNo==null)
-                          Lengkap
-                        @else
-                          Belum Lengkap
-                        @endif
+                      @if($user->NIC == null || $user->description == null || $user->address == null || $user->city == null || $user->gender == null || $user->birthday == null || $user->phoneNo == null)
+                        Belum Lengkap
+                      @else
+                        Lengkap
+                      @endif                  
                     </td>
                     <td>
                       @if($user->email_verified_at==NULL)

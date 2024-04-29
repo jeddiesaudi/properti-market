@@ -29,7 +29,7 @@
     <div class="card cardmargin">
         <div class="containerx">
             <div class="subtitle has-text-black-bis">Semua User Teregistrasi</div>
-            <a href="/admin/user/tambah" class="button is-dark nounnounderlinebtn is-pulled-right">Tambah USer</a>
+            <a href="/admin/user/tambah" class="button is-dark nounnounderlinebtn is-pulled-right">Tambah User</a>
           <div class="column tableshow style="overflow-x: auto">   
             <table class="table">
               <thead>
@@ -40,7 +40,6 @@
                   <th>Email User</th>
                   <th>Kelengkapan Profil</th>
                   <th>Status</th>
-                  <th></th>
                   <th></th>
                   <th></th>
                   <th></th>
@@ -57,7 +56,6 @@
                   <th></th>
                   <th></th>
                   <th></th>
-                  <th></th>
                 </tr>
               </tfoot>
               <tbody>
@@ -68,11 +66,12 @@
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>
-                        @if($user->NIC==null || $user->description==null || $user->address==null || $user->city==null || $user->gender==null || $user->NIC==null || $user->birthday==null || $user->phoneNo==null)
-                          <span class="has-text-danger">Belum Lengkap</span>
-                        @else
-                        <span class="has-text-success">Lengkap</span>
-                        @endif
+                      @if($user->NIC == null || $user->description == null || $user->address == null || $user->city == null || $user->gender == null || $user->birthday == null || $user->phoneNo == null)
+                          Belum Lengkap
+                      @else
+                          Lengkap
+                      @endif
+                  
                     </td>
                     <td>
                       @if($user->email_verified_at==NULL)
@@ -82,7 +81,6 @@
                       @endif
                     </td>
                   <td><a href="/admin/user/{{$user->id}}/tampil" class="button is-success nounnounderlinebtn" target="_blank"><i class="fas fa-external-link-square-alt"></i></a></td>
-                  <td><a href="/admin/user/{{$user->id}}/kontak" class="button is-link nounnounderlinebtn" target="_blank"><i class="far fa-comment-alt"></i></a></td> 
                   <td><a href="/admin/user/{{$user->id}}/edit" class="button is-warning nounnounderlinebtn" target="_blank"><i class="fa fa-edit"></i></a></td> 
                   <td>
                     <form action="/admin/user/{{$user->id}}/hapus" method="post">

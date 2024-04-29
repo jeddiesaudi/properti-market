@@ -39,6 +39,8 @@
                             <th>Jenis</th>
                             <th>Harga</th>
                             <th>Periode</th>
+                            <th>Tersedia</th>
+                            <th>Tersewa</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -51,6 +53,8 @@
                             <th>Jenis</th>
                             <th>Harga</th>
                             <th>Periode</th>
+                            <th>Tersedia</th>
+                            <th>Tersewa</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -64,6 +68,8 @@
                             <td>{{$property->type}}</td>
                             <td>{{number_format($property->amount,2)}}</td>
                             <td>{{$property->periode}} Bulan</td>
+                            <td>0</td>
+                            <td>0</td>
                             <td><a href="/admin/propertisg/{{$property->id}}" class="button is-success nounnounderlinebtn" target="_blank"><i class="fas fa-external-link-square-alt"></i></a></td> 
                             <td>
                                 <form action="/admin/propertisg/{{$property->id}}/hapus" method="post">

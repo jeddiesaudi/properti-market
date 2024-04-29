@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
-use Image;
+use Intervention\Image\Facades\Image;
 
 class AdminController extends Controller
 {
@@ -62,7 +62,7 @@ class AdminController extends Controller
             $dir=public_path('uploads/avatars/'.$user->avatar);
             File::delete($dir);
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300, 300)->save(\public_path('/uploads/avatars/' . $filename));
+            Image::make(file_get_contents($avatar))->resize(300, 300)->save(\public_path('/uploads/avatars/' . $filename));
             $user->avatar = $filename;
             $user->save();
         }

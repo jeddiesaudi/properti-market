@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Auth;
-use Image;
+use Intervention\Image\Facades\Image;
 use App\User;
 use App\Transaksi;
 use App\UserEmail;
@@ -25,7 +25,7 @@ class ProfilController extends Controller
             File::delete($dir);
             $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300,300)->save(\public_path('/uploads/avatars/' . $filename));
+            Image::make(file_get_contents($avatar))->resize(300,300)->save(\public_path('/uploads/avatars/' . $filename));
             $user->avatar = $filename;
             $user->save();
         }

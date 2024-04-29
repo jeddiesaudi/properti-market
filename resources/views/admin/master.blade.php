@@ -27,7 +27,7 @@
           @if (Auth::user()->issuper)
           Panel Super Admin
           @else
-          Admin Panel
+          Panel Admin
           @endif
         </div>
         <figure class="image is-96x96 profileavatar adminprofileavatar adminavatar" id="myBtn">
@@ -57,19 +57,6 @@
         </p>
         <ul class="menu-list adminlistitem">
           <li><a href="/admin/report"> Lihat Report</a></li>
-        </ul>
-        <p class="menu-label has-text-dark is-4 is-size-7 has-text-weight-bold is-uppercase">
-          <i class="fab fa-blogger-b"></i> Manajemen Blog
-        </p>
-        <ul class="menu-list adminlistitem">
-          <li><a href="/blog/baru">Artikel Baru</a></li>
-          <li><a href="/admin/artikel"> Lihat Artikel</a></li>
-        </ul>
-        <p class="menu-label has-text-dark is-4 is-size-7 has-text-weight-bold is-uppercase">
-          <i class="fab fa-blogger-b"></i> Manajemen Pertanyaan
-        </p>
-        <ul class="menu-list adminlistitem">
-          <li><a href="/admin/pertanyaan/tampil">Lihat Pertanyaan</a></li>
         </ul>
         <p class="menu-label has-text-dark is-4 is-size-7 has-text-weight-bold is-uppercase">
           <i class="fas fa-users"></i> Manajemen User
@@ -105,14 +92,6 @@
     @include('admin.tambahuser')
     @elseif(Request::is('admin/rumah/*/edit'))
     @include('profil.editrumah')
-    @elseif(Request::is('admin/lahan/*/edit'))
-    @include('profil.editlahan')
-    @elseif(Request::is('admin/gedung/*/edit'))
-    @include('profil.editgedung')
-    @elseif(Request::is('admin/apartemen/*/edit'))
-    @include('profil.editapartemen')
-    @elseif(Request::is('admin/gudang/*/edit'))
-    @include('profil.editgudang')
     @elseif(Request::is('admin/properti/semua'))
     @include('admin.semuaproperti')
     @elseif(Request::is('admin/user/semua'))

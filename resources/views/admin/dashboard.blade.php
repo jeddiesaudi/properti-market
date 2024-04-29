@@ -73,6 +73,7 @@
           <th>Lokasi Properti</th>
           <th>Jenis Properti</th>
           <th>Harga Properti</th>
+          <th>Periode Sewa</th>
           <th>Ditambah Oleh</th>
           <th>Lihat</th>
         </tr>
@@ -85,6 +86,7 @@
           <th>Lokasi Properti</th>
           <th>Jenis Properti</th>
           <th>Harga Properti</th>
+          <th>Periode Sewa</th>
           <th>Ditambah Oleh</th>
           <th>Lihat</th>
         </tr>
@@ -98,8 +100,9 @@
           <td>{{$property->city}}</td>
           <td>{{$property->type}}</td>
           <td>{{number_format($property->amount,2)}}</td>
+          <td>{{$property->periode}} Bulan</td>
           <td>{{$property->user->name}}</td>
-          <td><a href="/admin/{{strtolower($property->type)}}/{{$property->id}}" class="button is-success nounnounderlinebtn"
+          <td><a href="/admin/propertisg/{{$property->id}}" class="button is-success nounnounderlinebtn"
               target="_blank">Lihat</a></td>
         </tr>
         @endforeach

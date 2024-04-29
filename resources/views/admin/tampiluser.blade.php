@@ -71,7 +71,7 @@
                             <th>Lokasi</th>
                             <th>Jenis</th>
                             <th>Harga</th>
-                            <th></th>
+                            <th>Periode</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -83,7 +83,7 @@
                             <th>Lokasi</th>
                             <th>Jenis</th>
                             <th>Harga</th>
-                            <th></th>
+                            <th>Periode</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -96,10 +96,10 @@
                             <td>{{$property->city}}</td>
                             <td>{{$property->type}}</td>
                             <td>{{number_format($property->amount,2)}}</td>
-                            <td><a href="/{{strtolower($property->type)}}/{{$property->id}}" class="button is-success nounnounderlinebtn" target="_blank"><i class="fas fa-external-link-square-alt"></i></a></td> 
-                            <td><a href="/admin/{{strtolower($property->type)}}/{{$property->id}}/edit" class="button is-warning nounnounderlinebtn" target="_blank"><i class="fa fa-edit"></i></a></td> 
+                            <td>{{$property->periode}} Bulan</td>
+                            <td><a href="/propertisg/{{$property->id}}" class="button is-success nounnounderlinebtn" target="_blank"><i class="fas fa-external-link-square-alt"></i></a></td> 
                             <td>
-                                <form action="/admin/{{strtolower($property->type)}}/{{$property->id}}/delete" method="post">
+                                <form action="/admin/propertisg/{{$property->id}}/hapus" method="post">
                                     @csrf
                                     <button class="button is-danger nounnounderlinebtn" type="submit" onclick="deleteMe();"><i class="far fa-trash-alt"></i></button>
                                 </form>

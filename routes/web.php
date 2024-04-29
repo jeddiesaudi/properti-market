@@ -34,8 +34,6 @@ Route::get('/admin/propertisg/{house}', [App\Http\Controllers\PropertiSGControll
 Route::post('/propertisg/{house}', [App\Http\Controllers\PropertiSGController::class, 'cariPropertiSG']);
 Route::post('/propertisg/{house}/report', [App\Http\Controllers\ReportPropertyController::class, 'reportPropertiSG']);
 Route::get('/profil/propertisg/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'tampilEditPropertiSG'])->middleware('auth');
-Route::get('/admin/propertisg/{house}/edit', [App\Http\Controllers\AdminController::class, 'tampilAdminEditPropertiSG'])->middleware('auth:admin');
-Route::post('/admin/propertisg/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'editPropertiSG']);
 Route::post('/profil/propertisg/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'editPropertiSG']);
 Route::post('/profil/propertisg/{house}/hapus', [App\Http\Controllers\PropertiSGController::class, 'hapusPropertiSG']);
 Route::post('/admin/propertisg/{house}/hapus', [App\Http\Controllers\PropertiSGController::class, 'hapusPropertiSG'])->middleware('auth:admin');

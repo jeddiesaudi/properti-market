@@ -150,7 +150,7 @@
         <div class="row printarea">
             @if($houses->count() > 0) 
             @foreach ($houses as $house)
-                @include('hasil.datarumah') 
+                @include('hasil.datapropertisg') 
             @endforeach 
             @else
                 @include('hasil.datakosong')

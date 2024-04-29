@@ -17,7 +17,8 @@
                             <span class="has-text-dark">Lokasi :</span> {{$house->property->city}} <br>
                             <span class="has-text-dark">Harga :</span> Rp. {{number_format($house->property->amount,2)}} <br>
                             <span class="has-text-dark">Periode :</span> {{$house->property->periode}} Bulan<br>
-                            <span class="has-text-dark">Stok :</span> {{$house->stok}} Tersedia
+                            <span class="has-text-dark">Tersedia :</span> {{$house->stok}} <br>
+                            <span class="has-text-dark">Tersewa :</span> 0
                             
                         </p>
                     </div>

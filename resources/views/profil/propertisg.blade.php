@@ -12,7 +12,7 @@
             <div class="row">
                     @if($houses->count() > 0) 
                     @foreach ($houses as $house)
-                        @include('profil.datarumah') 
+                        @include('profil.datapropertisg') 
                     @endforeach 
                     @else
                         @include('profil.datakosong')

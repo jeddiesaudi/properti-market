@@ -24,61 +24,27 @@ class PropertiSGController extends Controller
     public function cariPropertiSG(Request $request)
     {
         $keyword = $request->input('searchquery');
-        $room = $request->input('room');
+        $periode = $request->input('periode');
         $minPrice = $request->input('minprice');
         $maxPrice = $request->input('maxprice');
 
-        if ($swimmingPool = $request->has('swimmingpool')) {
-
-            $swimmingPool = "Available";
-        } else {
-
-            $swimmingPool = "%%";
-        }
-
-        if ($noOfFloors = $request->has('balcony')) {
-
-            $noOfFloors = 2;
-        } else {
-
-            $noOfFloors = 0;
-        }
-
-        if ($outdoor = $request->has('outdoor')) {
-
-            $outdoor = "Available";
-        } else {
-
-            $outdoor = "%%";
-        }
-
-        $houses = PropertiSG::whereHas('property', function ($query) use ($room) {
-            $query->where('noOfRooms', '>=', $room);
-        })->whereHas('property', function ($query) use ($keyword) {
+        // Check if 'periode' is selected, then include it in the query
+        $houses = PropertiSG::whereHas('property', function ($query) use ($periode, $keyword, $minPrice, $maxPrice) {
+            if ($periode != '0') {
+                $query->where('periode', $periode);
+            }
             $query->where(function ($query) use ($keyword) {
-                $query->orwhere('postalCode', 'LIKE', $keyword)
-                    ->orWhere('province', 'LIKE', $keyword)
-                    ->orWhere('city', 'LIKE', $keyword);
-            });
-        })->whereHas('property', function ($query) use ($minPrice, $maxPrice) {
-
-            $query->whereBetween('amount', array($minPrice, $maxPrice));
-        })->whereHas('property', function ($query) {
-
-            $query->where('availability', 'LIKE', "Tersedia");
-
-        })->where(function ($query) use ($swimmingPool) {
-
-            $query->where('swimmingPool', 'LIKE', $swimmingPool);
-        })->where(function ($query) use ($noOfFloors) {
-
-            $query->where('noOfFloors', '>=', $noOfFloors);
-        })->where(function ($query) use ($outdoor) {
-
-            $query->where('garden', 'LIKE', $outdoor);
+                $query->where('type', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('name', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('city', 'LIKE', '%' . $keyword . '%');
+            })
+            ->whereBetween('amount', [$minPrice, $maxPrice]);
         })->get();
+        
+        // dd(count($houses));
+        
 
-        return view('hasil.hasilrumah', compact('houses'));
+        return view('hasil.hasilpropertisg', compact('houses'));
     }
 
     public function tampilEditPropertiSG(PropertiSG $house)

@@ -21,11 +21,11 @@
 
     <div class="container">
         {{-- Search Box --}}
-        <form method="POST" action="/rumah/cari">
+        <form method="POST" action="/propertisg/cari">
             @csrf
               <div class="field has-addons searchagain">
                   <p class="control has-icons-left is-expanded">
-                    <input class="input is-medium inputsearchbox" type="text" placeholder="Cari berdasarkan Kota, Kode Pos, dll." id="search" name="searchquery">
+                    <input class="input is-medium inputsearchbox" type="text" placeholder="Cari berdasarkan Nama, Lokasi, atau Jenis Properti" id="search" name="searchquery">
                     <span class="icon is-small is-left">
                       <i class="fas fa-search"></i>
                     </span>
@@ -90,61 +90,22 @@
                   </div>
                   <div class="control has-icons-left">
                     <div class="select selectbox is-small">
-                        <select name="room">
-                        <option value="0">Kamar</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">More</option>
-                        </select>
+                      <select name="periode">
+                      <option value="0">Periode</option>
+                      <option value="3">3 Bulan</option>
+                      <option value="6">6 Bulan</option>
+                      <option value="12">12 Bulan</option>
+                      </select>
                     </div>
                     <span class="icon is-small is-left">
-                      <i class="fas fa-walking"></i>
+                      <i class="far fa-clock"></i>
                     </span>
                   </div>
-                  <label class="checkbox checktext has-text-primary">
-                      <input type="checkbox" name="swimmingpool" value="yes">
-                      Kolam Renang
-                  </label>
-                  <label class="checkbox checktext has-text-primary">
-                      <input type="checkbox" name="balcony">
-                      Balkon
-                  </label>
-                  <label class="checkbox checktext has-text-primary">
-                      <input type="checkbox" name="outdoor"> 
-                      Halaman Outdoor
-                  </label>
               </div>
               <br>
               </div>
           </form>
     </div>
-
-    {{--
-    <div class="columns">
-        <div class="column is-3">
-
-        </div>
-        <div class="column is-6 is-centered">
-    @include('results.thread')
-    @include('results.thread')
-    @include('results.thread')
-    @include('results.thread')
-    @include('results.thread')
-        </div>
-        <div class="column is-3">
-
-        </div>
-    </div> --}}
 
     <div class="grayme">
         <div class="row printarea">

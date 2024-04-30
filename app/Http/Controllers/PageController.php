@@ -48,7 +48,7 @@ class PageController extends Controller
     public function cariPropertiSG()
     {
         $houses = PropertiSG::all();
-        return view('hasil.hasilrumah',compact('houses'));
+        return view('hasil.hasilpropertisg',compact('houses'));
     }
     
     // Profile Page Methods

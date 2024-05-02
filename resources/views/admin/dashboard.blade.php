@@ -39,7 +39,7 @@
   @include('admin.navprofile')
   <nav class="breadcrumb has-arrow-separator profileback breadcrumbcss" aria-label="breadcrumbs">
     <ul>
-      <li><a href="/admin">Admin</a></li>
+      <li><a class="has-text-danger" href="/admin">Admin</a></li>
       <li class="is-active"><a href="/admin">Dashboard</a></li>
     </ul>
   </nav>
@@ -105,7 +105,7 @@
           <td>0</td>
           <td>0</td>
           <td>{{$property->user->name}}</td>
-          <td><a href="/admin/propertisg/{{$property->id}}" class="button is-success nounnounderlinebtn"
+          <td><a href="/admin/propertisg/{{$property->id}}" class="button is-dark nounnounderlinebtn"
               target="_blank">Lihat</a></td>
         </tr>
         @endforeach
@@ -156,7 +156,7 @@
                         Terverifikasi
                       @endif
                     </td>
-                  <td><a href="/admin/user/{{$user->id}}/tampil" class="button is-info nounnounderlinebtn" target="_blank">Lihat User</a>
+                  <td><a href="/admin/user/{{$user->id}}/tampil" class="button is-dark nounnounderlinebtn" target="_blank">Lihat User</a>
     </td>
     </tr>
     @endforeach

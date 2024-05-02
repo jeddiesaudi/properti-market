@@ -91,11 +91,11 @@
                     </div>
                     <div class="subtitle has-text-centered"><span>@</span>{{$house->property->user->name}}</div>
                     <div class="has-text-centered">
-                        <button class="button is-success" onclick="location.href='https://wa.me/62812345678/'" type="button">Whatsapp Kami</button>
+                        <button class="button is-danger" onclick="location.href='https://wa.me/62812345678/'" type="button">Whatsapp Kami</button>
                         <p class="has-text-dark customerpno" id="pno"><a href="tel:{{$house->property->contactNo}}" class="nounnounderlinelink">{{$house->property->contactNo}}</a></p>
                         <hr>
-                        <p class="owneramount">Harga Sewa: Rp. <span class="has-text-success has-text-weight-bold">{{number_format($house->property->amount,2)}}/{{ $house->property->periode }} Bulan</span></p>
-                        <p class="ownerstok">Stok: <span class="has-text-success has-text-weight-bold">{{ $house->stok }} Tersedia</span></p>
+                        <p class="owneramount">Harga Sewa: Rp. <span class="has-text-danger has-text-weight-bold">{{number_format($house->property->amount,2)}}/{{ $house->property->periode }} Bulan</span></p>
+                        <p class="ownerstok">Stok: <span class="has-text-danger has-text-weight-bold">{{ $house->stok }} Tersedia</span></p>
                     </div>
                 </div>
             </div>

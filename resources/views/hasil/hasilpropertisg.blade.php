@@ -31,7 +31,7 @@
                     </span>
                   </p>
                   <div class="control">
-                      <button class="button inputsearchbox is-primary is-medium"><span class="subtitle is-6 has-text-white">Cari</span></button>
+                      <button class="button inputsearchbox is-danger is-medium"><span class="subtitle is-6 has-text-white">Cari</span></button>
                   </div>
               </div>
               <div class="is-hidden-touch">

@@ -15,7 +15,7 @@
                         </div>
                         <div class="media-content">
                             <p class="subtitle is-5 has-text-dark has-text-weight-medium">{{$house->property->name}}</p>
-                            <p class="title is-4 has-text-dark">Rp. {{number_format($house->property->amount,2) . "/" . $house->periode}} Bulan</p>
+                            <p class="title is-4 has-text-dark">Rp. {{number_format($house->property->amount,2) . "/" . $house->property->periode}} Bulan</p>
                             <p class="subtitle is-6 has-text-link"><span>@</span>{{$house->property->user->name}}</p>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                         <br><br>
                         <small><time datetime="2016-1-1">{{$house->created_at->isoFormat('LLLL')}}</time></small>
                         <br><br>
-                        <a href="/propertisg/{{$house->id}}"><button class="button is-link is-pulled-right">Selengkapnya</button></a>
+                        <a href="/propertisg/{{$house->id}}"><button class="button is-dark is-pulled-right">Selengkapnya</button></a>
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@
     @include('admin.navprofile')
     <nav class="breadcrumb has-arrow-separator profileback breadcrumbcss" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/admin">Admin</a></li>
+            <li><a class="has-text-danger" href="/admin">Admin</a></li>
             <li class="is-active"><a href="/profil">Semua Properti</a></li>
         </ul>
     </nav>
@@ -70,7 +70,7 @@
                             <td>{{$property->periode}} Bulan</td>
                             <td>0</td>
                             <td>0</td>
-                            <td><a href="/admin/propertisg/{{$property->id}}" class="button is-success nounnounderlinebtn" target="_blank"><i class="fas fa-external-link-square-alt"></i></a></td> 
+                            <td><a href="/admin/propertisg/{{$property->id}}" class="button is-dark nounnounderlinebtn" target="_blank"><i class="fas fa-external-link-square-alt"></i></a></td> 
                             <td>
                                 <form action="/admin/propertisg/{{$property->id}}/hapus" method="post">
                                     @csrf

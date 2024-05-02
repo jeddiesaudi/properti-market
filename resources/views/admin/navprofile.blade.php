@@ -1,5 +1,5 @@
 <nav class="navbar adminprofilenavbar" role="navigation" aria-label="main navigation">
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div id="navbarBasicExample" class="navbar-menu has-background-danger">
         <div class="navbar-end is-pulled-right">
             <div class="navbar-item is-pulled-right">
                 <div class="buttons is-pulled-right">

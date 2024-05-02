@@ -40,34 +40,34 @@
         </figure>
         <p class="has-text-white is-4 is-size-7 has-text-weight-bold has-text-centered is-uppercase">Selamat Datang,
           {{Auth::user()->name}}</p>
-        <p class="menu-label is-4 is-size-7 has-text-weight-bold has-text-dark is-uppercase">
-          <i class="fas fa-pastafarianism"></i> Umum
+        <p class="menu-label is-4 is-size-7 has-text-weight-bold has-text-danger is-uppercase">
+          <i class="fas fa-pastafarianism has-text-danger"></i> Umum
         </p>
         <ul class="menu-list adminlistitem">
           <li><a href="/admin">Dashboard</a></li>
         </ul>
-        <p class="menu-label is-4 is-size-7 has-text-weight-bold has-text-dark is-uppercase">
-          <i class="fas fa-home"></i> Manajemen Properti
+        <p class="menu-label is-4 is-size-7 has-text-weight-bold has-text-danger is-uppercase">
+          <i class="fas fa-home has-text-danger"></i> Manajemen Properti
         </p>
         <ul class="menu-list adminlistitem">
           <li><a href="/admin/properti/semua">Semua</a></li>
         </ul>
-        <p class="menu-label has-text-dark is-4 is-size-7 has-text-weight-bold is-uppercase">
-          <i class="fas fa-users"></i> Manajemen User
+        <p class="menu-label has-text-danger is-4 is-size-7 has-text-weight-bold is-uppercase">
+          <i class="fas fa-users has-text-danger"></i> Manajemen User
         </p>
         <ul class="menu-list adminlistitem">
           <li><a href="/admin/user/tambah">User Baru</a></li>
           <li><a href="/admin/user/semua">Lihat User</a></li>
         </ul>
-        <p class="menu-label has-text-dark is-4 is-size-7 has-text-weight-bold is-uppercase">
-          <i class="fas fa-user-shield"></i> Manajemen Administrator
+        <p class="menu-label has-text-danger is-4 is-size-7 has-text-weight-bold is-uppercase">
+          <i class="fas fa-user-shield has-text-danger"></i> Manajemen Administrator
         </p>
         <ul class="menu-list adminlistitem">
           <li><a href="/admin/tambah">Admin Baru</a></li>
           <li><a href="/admin/semua">Lihat Admin</a></li>
         </ul>
-        <p class="menu-label has-text-dark is-4 is-size-7 has-text-weight-bold is-uppercase">
-          <i class="fas fa-cogs"></i> Lainnya
+        <p class="menu-label has-text-danger is-4 is-size-7 has-text-weight-bold is-uppercase">
+          <i class="fas fa-cogs has-text-danger"></i> Lainnya
         </p>
         <ul class="menu-list adminlistitem">
           <li><a href="{{ route('admin.logout') }}">Logout</a></li>

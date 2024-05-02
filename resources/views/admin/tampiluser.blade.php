@@ -2,7 +2,7 @@
     @include('admin.navprofile')
     <nav class="breadcrumb has-arrow-separator profileback breadcrumbcss" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/admin">Admin</a></li>
+            <li><a class="has-text-danger" href="/admin">Admin</a></li>
             <li class="is-active"><a href="/profil">Lihat User</a></li>
         </ul>
     </nav>

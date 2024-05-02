@@ -2,7 +2,7 @@
     @include('admin.navprofile')
     <nav class="breadcrumb has-arrow-separator profileback breadcrumbcss" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/admin">Admin</a></li>
+            <li><a class="has-text-danger" href="/admin">Admin</a></li>
             <li class="is-active"><a href="/profil">Semua Admin</a></li>
         </ul>
     </nav>
@@ -29,8 +29,8 @@
     <div class="card cardmargin">
         <div class="containerx">
             <div class="subtitle has-text-black-bis">Semua Administrator</div>
-            <a href="/admin/tambah" class="button is-dark nounnounderlinebtn is-pulled-right">Tambah Admin</a>
-            <div class="column tableshow style=" overflow-x: auto">
+            <a href="/admin/tambah" class="button is-danger nounnounderlinebtn is-pulled-right">Tambah Admin</a>
+            <div class="column tableshow">
                 <table class="table">
                     <thead>
                         <tr>

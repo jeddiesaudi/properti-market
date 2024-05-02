@@ -2,7 +2,7 @@
   @include('admin.navprofile')
   <nav class="breadcrumb has-arrow-separator profileback breadcrumbcss" aria-label="breadcrumbs">
     <ul>
-      <li><a href="/admin">Admin</a></li>
+      <li><a class="has-text-danger" href="/admin">Admin</a></li>
       <li class="is-active"><a href="/profil">Tambah Admin</a></li>
     </ul>
   </nav>
@@ -66,7 +66,7 @@
         </div>
         <div class="field">
           <p class="control has-text-centered">
-            <button type="submit" class="button is-success">
+            <button type="submit" class="button is-danger">
               <span class="buttonspace">Tambah Admin</span>
             </button>
           </p>

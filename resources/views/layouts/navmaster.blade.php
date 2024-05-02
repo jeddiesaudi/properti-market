@@ -1,19 +1,13 @@
 <nav class="navbar is-transparent navcolor">
   <div class="navbar-brand">
-    <a class="navbar-item" href="/">
-      <img src="img/logo.png" width="112" height="28">
-          </a>
-    <div class="navbar-burger burger navcolor" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');"
-      data-target="navid">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <a class="" href="/">
+      <img src="img/logo-white.png" height="150px">
+    </a>
+   
   </div>
-
   <div id="navid" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item menutext thisactive" href="/rumah">
+      <a class="navbar-item menutext thisactive" href="/beranda">
               Beranda
             </a>
       <a class="navbar-item menutext" href="https://wa.me/6212345678"  target="_blank">

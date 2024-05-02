@@ -2,7 +2,7 @@
         @include('profil.navprofil')
         <nav class="breadcrumb has-arrow-separator profileback breadcrumbcss" aria-label="breadcrumbs">
             <ul>
-                <li><a href="/profil">Profil</a></li>
+                <li><a class="has-text-danger" href="/profil">Profil</a></li>
                 <li class="is-active"><a href="/profil">Dashboard</a></li>
             </ul>
         </nav>
@@ -28,28 +28,28 @@
       @endif
         <div class="columns dashboxes profileback">
             <div class="column has-text-centered selecticon" onclick="location.href='/tambah/propertisg'">
-              <span class="icon has-text-centered is-large">
+              <span class="icon has-text-centered is-large has-text-dark">
                 <i class="fas fa-home fa-4x"></i>
               </span>
-              <h6 class="is-uppercase has-text-weight-bold">Tambah Properti</h6>
+              <h6 class="is-uppercase has-text-weight-bold has-text-dark">Tambah Properti</h6>
             </div>
             <div class="column has-text-centered selecticon" onclick="location.href='/profil/editprofil'">
-              <span class="icon has-text-centered is-large">
+              <span class="icon has-text-centered is-large has-text-dark">
                 <i class="fas fa-edit fa-4x"></i>
               </span>
-              <h6 class="is-uppercase has-text-weight-bold">Edit Profil</h6>
+              <h6 class="is-uppercase has-text-weight-bold has-text-dark">Edit Profil</h6>
             </div>
             <div class="column has-text-centered selecticon" onclick="location.href='/profil/terjual'">
-              <span class="iicon has-text-centered is-large">
+              <span class="iicon has-text-centered is-large has-text-dark">
                 <i class="far fa-check-circle fa-4x"></i>
               </span>
-              <h6 class="is-uppercase has-text-weight-bold">Properti Terjual</h6>
+              <h6 class="is-uppercase has-text-weight-bold has-text-dark">Properti Terjual</h6>
             </div>
             <div class="column has-text-centered selecticon" onclick="location.href='/'">
-              <span class="icon has-text-centered is-large">
+              <span class="icon has-text-centered is-large has-text-dark">
                 <i class="fas fa-search fa-4x"></i>
               </span>
-              <h6 class="is-uppercase has-text-weight-bold">Cari</h6>
+              <h6 class="is-uppercase has-text-weight-bold has-text-dark">Cari</h6>
             </div>
         </div>
         

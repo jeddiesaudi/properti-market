@@ -27,19 +27,19 @@
                     </figcaption>	
                 </figure>
                 <p class="has-text-dark has-text-centered is-4 is-size-7 has-text-weight-bold is-uppercase">Selamat Datang, {{auth()->user()->name}}</p>
-                <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold is-uppercase">
+                <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold has-text-danger is-uppercase">
                   Umum
                 </p>
                 <ul class="menu-list listitem is-size-6">
                   <li><a href="/profil">Dashboard</a></li>
                 </ul>
-                <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold is-uppercase">
+                <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold has-text-danger is-uppercase">
                   Manajemen Properti
                 </p>
                 <ul class="menu-list listitem">
                   <li><a href="/tambah/propertisg">Tambah Properti</a></li>
                   <li><a href="/profil/propertisg">Semua Properti</a></li>
-                <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold is-uppercase">
+                <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold has-text-danger is-uppercase">
                   Pengaturan Akun
                 </p>
                 <ul class="menu-list listitem">
@@ -47,7 +47,7 @@
                   <li><a href="/profil/gantipassword">Ganti Password</a></li>
                   <li><a href="/profil/hapusakun">Hapus Akun</a></li>
                 </ul>
-                <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold is-uppercase">
+                <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold has-text-danger is-uppercase">
                   Lainnya
                 </p>
                 <ul class="menu-list listitem">

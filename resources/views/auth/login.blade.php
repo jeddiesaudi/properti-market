@@ -16,17 +16,13 @@
 
 </head>
 
-<body class="grayme">
-
-    <div class="column is-full colorbar">
-        {{-- top color bar goes here --}}
-    </div>
+<body>
     <br>
     <div class="columns fulllogin is-centered">
         <div class="column is-two-thirds leftsideeffect">
             <a href="/">
                 <figure class="image is-blacklogo">
-                    <img src="img/logoblack.png" width="112" height="28">
+                    <img src="img/logo-black.png" height="150px">
                 </figure>
             </a>
             <div class="is-mobile textboxlogin">
@@ -65,7 +61,7 @@
                     </div>
     <div class="field ">
         <p class="control has-text-centered is-centered loginbutton">
-            <button class="button is-primary is full is-uppercase">
+            <button class="button is-danger is full is-uppercase">
                 &nbsp; &nbsp; &nbsp; &nbsp; Login &nbsp; &nbsp; &nbsp; &nbsp;
             </button>
         </p>
@@ -75,7 +71,7 @@
             <div class="">
                 <h1 class="is-size-7 has-text-weight-bold has-text-danger"><b> {{ session()->get('message') }}</b></h1>
             </div>
-            @endif
+    @endif
     </div>
     </div>
     </div>
@@ -85,7 +81,6 @@
     @include('layouts.footer') {{-- JavaScript Files --}}
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/fontawesome.js"></script>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 
 </html>

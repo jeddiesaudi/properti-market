@@ -25,7 +25,7 @@
         <div class="column is-two-thirds leftsideeffect">
             <a href="/">
                 <figure class="image is-blacklogo">
-                    <img src="/img/logoblack.png" width="112" height="28">
+                    <img src="/img/logo-black.png" height="150px">
                 </figure>
             </a>
             <div class="is-mobile textboxlogin">

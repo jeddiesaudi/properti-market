@@ -19,16 +19,17 @@
     <div class="column is-full is-mobile backgroundimg">
         <div class="container">
             <div class="column is-mobile is-centered">
-                @include('layouts.navmaster');
+                @include('layouts.navmaster')
             </div>
         </div>
+        <br>
         <div class="container">
             <div class="columns is-mobile is-centered">
                <div class="column is-8 searchbox">
                    <h1 class="subtitle is-4 has-text-white searchboxtitletext">Cari Properti</h1>
                    <div class="tabs">
                     <ul>
-                      <li class="is-active has-background-primary tabitem">
+                      <li class="is-active has-background-danger tabitem">
                         <a href="/beranda">
                                   <span class="has-text-white">Properti</span>
                                 </a>
@@ -47,7 +48,7 @@
                           </span>
                         </p>
                         <div class="control">
-                            <button class="button inputsearchbox is-primary is-large"><span class="subtitle is-6 has-text-white">Cari</span></button>
+                            <button class="button inputsearchbox is-danger is-large"><span class="subtitle is-6 has-text-white">Cari</span></button>
                         </div>
                     </div>
                     <div class="is-hidden-touch">
@@ -140,9 +141,9 @@
             </div>
             <div class="has-text-centered indexicon">
                 <span class="icon has-text-white is-large">
-                  <i class="fas fa-home fa-5x"></i>
+                  <i class="fas fa-home fa-5x has-text-danger"></i>
                 </span>
-                <h4 class="has-text-white">Temukan Rumah Impian Anda</h4>
+                <h4 class="has-text-white"><span class="has-text-danger">Temukan</span> Properti Impian Kamu</h4>
             </div>
         </div>
     </div>
@@ -153,33 +154,39 @@
       <div class="column"></div>
       <div class="column has-text-centered">
         <span class="is-centered has-text-primary">
-          <i class="fas fa-home fa-5x"></i>
+          <i class="fas fa-hand-holding-usd fa-5x has-text-danger"></i>
         </span>
         <br>
-        <div class="subtitle has-text-dark marginten">
-          Apa yang Anda Cari?
+        <div class="subtitle marginten">
+          Pelayanan Sewa
         </div>
-        Algoritme pencarian cepat kami memilih yang terbaik untuk Anda
+        <span class="has-text-dark">
+          Menyewakan Properti yang layak huni, nyaman dan aman.
+        </span>
       </div>
       <div class="column has-text-centered">
         <span class="is-centered has-text-primary">
-            <i class="far fa-thumbs-up fa-5x"></i>
+            <i class="fa fa-list fa-5x has-text-danger"></i>
         </span>
         <br>
-        <div class="subtitle has-text-dark marginten">
-        Rumah Idaman!
+        <div class="subtitle marginten">
+          List Properti
         </div>
-        Temukan rumah idaman kalian di sini
+        <span class="has-text-dark">
+          Memiliki List Properti sesuai dengan lokasi yang Anda inginkan.
+        </span>
       </div>
       <div class="column has-text-centered">
         <span class="is-centered has-text-primary">
-            <i class="fas fa-hand-holding-usd fa-5x"></i>
+            <i class="fa fa-gavel fa-5x has-text-danger"></i>
         </span>
         <br>
-        <div class="subtitle has-text-dark marginten">
-          Jaminan Harga Termurah?
+        <div class="subtitle marginten">
+          Persewaan Legal
         </div>
-        Kami menjual rumah dengan murah dan sangat terjangkau untuk Anda
+        <span class="has-text-dark">
+          Menyewakan Properti secara legal.
+        </span>
       </div>
       <div class="column"></div>
     </div>
@@ -211,13 +218,13 @@
                                             <span class="has-text-dark">Lokasi :</span> {{$house->property->city}} <br>
                                             <span class="has-text-dark">Harga :</span> Rp. {{number_format($house->property->amount,2)}} <br>
                                             <span class="has-text-dark">Periode :</span> {{$house->property->periode}} Bulan<br>
-                                            <span class="has-text-dark">Stok :</span> {{$house->stok}} Tersedia</p>
+                                            <span class="has-text-dark">Tersedia :</span> {{$house->stok}}</p>
                                     </div>
                                 </div>
                                 <div class="content">
                                     <small class media-left>{{$house->property->created_at->diffForHumans()}}</small>
                                     <div class="buttons is-pulled-right">
-                                        <button class="button is-success is-pulled-right" onclick="window.open('/propertisg/{{$house->id}}','_blank');">Lihat</button>
+                                        <button class="button is-danger is-pulled-right" onclick="window.open('/propertisg/{{$house->id}}','_blank');">Lihat</button>
                                     </div>
                                 </div>
                             </div>
@@ -239,13 +246,15 @@
         
       </div>
       <div class="column colorred">
-        <h1 class="title is-1 has-text-white has-text-centered maketheir">Buat mereka</h1>
-        <h2 class="title is-2 has-text-white has-text-centered futurebetter">Bermasa Depan Cerah!</h2>
-        <p class="control has-text-centered">
-          <a class="button is-primary is-inverted has-text-centered is-outlined signbuttonbelow" href="register">
-              <span>Join Sekarang</span>
-            </a>
-          </p>
+        <h1 class="subtitle is-1 has-text-white has-text-centered maketheir">Sabar Ganda Property</h1>
+        <div class="column">
+          <div class="column">
+            <p class="has-text-white has-text-centered">
+              Sabar Ganda Property adalah perusahaan yang bergerak di bidang persewaan properti, properti yang disewakan bisa berupa ruko, rumah dan lainnya.<br><br>
+              Properti yang disewakan memiliki lingkungan yang bersih, nyaman dengan harga merakyat atau lebih murah di banding kompetitor lainnya.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
 

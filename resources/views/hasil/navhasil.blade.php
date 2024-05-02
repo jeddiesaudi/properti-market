@@ -1,17 +1,18 @@
 <div class="container">
     <div class="is-centered">
-        <a class="navbar-item is-centered is-horizontal-center" href="/">
-            <img src="/img/logoblack.png"  width="112" height="28">
-        </a>       
+        <a class="navbar is-centered is-horizontal-center" href="/">
+            <img src="/img/logo-black.png"  height="100px">
+        </a>
+        <br>       
         <div class="buttons is-centered">
         @guest
         @else
           @if(Auth::guard('admin')->check())
-          <a class="button is-primary is-centered nounderlinebtn" href="/admin">
+          <a class="button is-danger is-centered nounderlinebtn" href="/admin">
             Profil
           </a>
           @else
-          <a class="button is-primary is-centered nounderlinebtn" href="/profil">
+          <a class="button is-danger is-centered nounderlinebtn" href="/profil">
             Profil
           </a>
           @endif

@@ -2,7 +2,7 @@
   @include('profil.navprofil')
   <nav class="breadcrumb has-arrow-separator has-background-white" aria-label="breadcrumbs">
     <ul>
-      <li><a href="/profil">Profil</a></li>
+      <li><a class="has-text-danger" href="/profil">Profil</a></li>
       <li class="is-active"><a href="/profil">Ganti Password</a></li>
     </ul>
   </nav>

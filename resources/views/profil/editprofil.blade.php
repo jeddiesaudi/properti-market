@@ -2,7 +2,7 @@
   @include('profil.navprofil')
   <nav class="breadcrumb has-arrow-separator profileback breadcrumbcss" aria-label="breadcrumbs">
     <ul>
-      <li><a href="/profil">Profil</a></li>
+      <li><a class="has-text-danger" href="/profil">Profil</a></li>
       <li class="is-active"><a href="/profil">Edit Akun</a></li>
     </ul>
   </nav>
@@ -121,7 +121,7 @@
       </div>
       <div class="field">
         <p class="control has-text-centered">
-          <button type="submit" class="button is-success">
+          <button type="submit" class="button is-dark">
                 <span class="buttonspace">Simpan</span>
           </button>
         </p>

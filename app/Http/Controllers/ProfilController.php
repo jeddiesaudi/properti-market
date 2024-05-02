@@ -48,15 +48,7 @@ class ProfilController extends Controller
 
         });
 
-        $offers = $offers = Transaksi::whereHas('property', function($query) use ($id) 
-        {
-            $query->where('user_id','=', $id);
-
-        })->limit(5)
-          ->orderBy('id', 'desc')
-          ->get();
-
-        return view('profil.home', compact('offers','messages'),array('user' => Auth::user()));
+        return view('profil.home', compact('messages'),array('user' => Auth::user()));
     }
 
     public function updateAkun(Request $request)

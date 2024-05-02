@@ -16,17 +16,13 @@
 
 </head>
 
-<body class="grayme">
-
-    <div class="column is-full colorbar">
-        {{-- top color bar goes here --}}
-    </div>
+<body>
     <br>
     <div class="columns fulllogin is-centered">
         <div class="column is-two-thirds leftsideeffect">
             <a href="/">
                 <figure class="image is-blacklogo">
-                    <img src="/img/logoblack.png" width="112" height="28">
+                    <img src="/img/logo-black.png" height="150px">
                 </figure>
             </a>
             <div class="is-mobile textboxlogin">
@@ -86,7 +82,6 @@
     @include('layouts.footer') {{-- JavaScript Files --}}
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/fontawesome.js"></script>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 
 </html>

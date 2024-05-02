@@ -102,7 +102,7 @@
                             <div class="input-group control-group increment">
                                 <input type="file" name="filename[]" class="form-control">
                                 <div class="input-group-btn">
-                                    <button class="button is-success addmore" type="button"><i
+                                    <button class="button is-dark addmore" type="button"><i
                                             class="glyphicon glyphicon-plus"></i>Lebih Banyak</button>
                                 </div>
                             </div>
@@ -160,7 +160,7 @@
                     </div>
                     <div class="field">
                         <div class="control is-pulled-right">
-                            <button type="submit" class="button is-primary">
+                            <button type="submit" class="button is-dark">
                                 Tambah Properti
                             </button>
                             <button type="reset" class="button is-warning">

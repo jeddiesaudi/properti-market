@@ -1,4 +1,4 @@
-<footer class="footer has-background-primary">
+<footer class="footer has-background-danger">
     <div class="content has-text-centered has-text-white">
         <p class="has-text-white has-text-centered">
         <strong class="has-text-white">Sabar Ganda Property</strong> by <a href="" class="has-text-white">Dahyani</a>

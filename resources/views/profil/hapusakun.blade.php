@@ -2,7 +2,7 @@
     @include('profil.navprofil')
     <nav class="breadcrumb has-arrow-separator has-background-white" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/profil">Profil</a></li>
+            <li><a class="has-text-danger" href="/profil">Profil</a></li>
             <li class="is-active"><a href="/profil">Hapus Akun</a></li>
         </ul>
     </nav>
@@ -11,7 +11,7 @@
             <h1 class="title has-text-centered">Hapus Akun</h1>
             <div class="centerinputbox has-text-centered">
                 <div class="subtitle">Anda ingin menghapus akun, akun Anda tidak bisa dipulihkan kembali. Silahkan lanjutkan dengan resiko Anda.</div>
-                <div class="subtitle is-6 has-text-link has-text-weight-bold">Penting: Semua Properti Anda akan terhapus.</div>
+                <div class="subtitle is-6 has-text-danger has-text-weight-bold">Penting: Semua Properti Anda akan terhapus.</div>
                 <form action="/profil/user/{{auth()->user()->id}}/hapus" method="post">
                     @csrf
                     <button class="button is-danger" type="submit" onclick="deleteMe();">Hapus Akun</button>

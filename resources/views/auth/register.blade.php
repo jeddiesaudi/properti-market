@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register - E-Commerce Property</title>
+    <title>Register - Sabar Ganda Property</title>
 
     {{-- CSS Files --}}
     <link rel="stylesheet" href="/css/bulma.min.css">

@@ -43,29 +43,5 @@ class User extends Authenticatable implements MustVerifyEmail
         
     }
 
-    public function offers(){
-
-        return $this->hasMany(Transaksi::class);
-        
-    }
-
-    public function useremails(){
-
-        return $this->hasMany(UserEmail::class);
-        
-    }
-
-    public function favorites(){
-
-        return $this->hasMany(Favorit::class);
-
-    }
-
-    public function comments(){
-
-        return $this->hasMany(Comment::class);
-
-    }
-
 
 }

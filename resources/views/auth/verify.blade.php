@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Verifikasi Email - Sabar Ganda Property</title>
+    <title>Verifikasi Akun - Sabar Ganda Property</title>
 
     {{-- CSS Files --}}
     <link rel="stylesheet" href="/css/bulma.min.css">
@@ -16,10 +16,6 @@
 </head>
 
 <body class="grayme">
-
-    <div class="column is-full colorbar">
-        {{-- top color bar goes here --}}
-    </div>
     <br>
     <div class="columns fulllogin is-centered">
         <div class="column is-two-thirds leftsideeffect">
@@ -30,28 +26,10 @@
             </a>
             <div class="is-mobile textboxlogin">
                 <p class="subtitle has-text-dark is-6 has-text-centered">{{ ('Hai! ')}}{{ Auth::user()->name }}</p>
-                <p class="title has-text-primary is-4 has-text-centered">{{ __('Verifikasi Email Anda') }}</p>
-                <p class="subtitle  has-text-centered is-size-7 tinytextlogin"> {{ __('Sebelum melanjutkan, harap periksa email Anda untuk tautan verifikasi.') }}</p>
+                <p class="title has-text-primary is-4 has-text-centered">{{ __('Verifikasi Akun Anda') }}</p>
+                <p class="subtitle  has-text-centered is-size-7 tinytextlogin"> {{ __('Sebelum melanjutkan, harap hubungi Admin untuk verifikasi akun Anda.') }}</p>
             </div>
             <br>
-            <div class="columns is-mobile is-centered">
-                <div class="column is-half">
-                    @if (session('resent'))
-                    <div class="notification is-success is-size-7">
-                        <button class="delete"></button> {{ __('Tautan verifikasi baru telah dikirim ke alamat email Anda.')
-                        }} </div>
-                    @endif
-                </div>
-            </div>
-            <div class="loginform">
-                <div class="field ">
-                        <form method="POST" action="{{ route('verification.resend') }}" class="control has-text-centered is-centered loginbutton">
-                            @csrf<input type="submit" class="button is-primary is full is-uppercase" value="{{ __('klik di sini untuk verifikasi ulang') }}">
-                            </input>
-                        </form>
-                </div>
-                </form>
-            </div>
         </div>
     </div>
 

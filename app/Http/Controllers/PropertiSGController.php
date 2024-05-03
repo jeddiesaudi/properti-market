@@ -53,17 +53,7 @@ class PropertiSGController extends Controller
 
         $id = Auth::user()->id;
 
-        $messages = UserEmail::where(function($query) use ($id)
-        {
-            $query->where('receiver_id','=', $id);
-
-        })->where(function ($query){
-
-            $query->where('status', 'LIKE', 'unread');
-
-        });
-
-            return view('profil.home', compact('house','messages'), array('user' => Auth::user()));
+        return view('profil.home', compact('house'), array('user' => Auth::user()));
 
         } else {
 

@@ -17,10 +17,4 @@ class PropertiSG extends Model
         return $this->belongsTo(Property::class);
 
     }
-
-    public function reportproperties(){
-
-        return $this->hasMany(ReportProperty::class);
-
-    }
 }

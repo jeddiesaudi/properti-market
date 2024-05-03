@@ -19,11 +19,6 @@ use Illuminate\Notifications\Notifiable;
             'password', 'remember_token',
         ];
     
-        public function articles(){
-
-            return $this->hasMany(Artikel::class);
-        }
-    
     }
 
 

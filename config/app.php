@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'E-Commerce Property'),
+    'name' => env('APP_NAME', 'Sabar Ganda Property'),
 
     /*
     |--------------------------------------------------------------------------

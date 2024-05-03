@@ -54,61 +54,22 @@ class PageController extends Controller
     // Profile Page Methods
     public function gantiPassword()
     {
-        $id = Auth::user()->id;
-        $messages = UserEmail::where(function($query) use ($id) 
-        {
-            $query->where('receiver_id','=', $id);
-
-        })->where(function ($query){
-
-            $query->where('status', 'LIKE', 'unread');
-    
-        });
-        return view('profil.home', compact('messages'), array('user' => Auth::user()));
+        return view('profil.home', array('user' => Auth::user()));
     }
 
     public function editProfil()
     {
-        $id = Auth::user()->id;
-        $messages = UserEmail::where(function($query) use ($id) 
-        {
-            $query->where('receiver_id','=', $id);
-
-        })->where(function ($query){
-
-            $query->where('status', 'LIKE', 'unread');
-    
-        });
-        return view('profil.home', compact('messages'), array('user' => Auth::user()));
+        return view('profil.home', array('user' => Auth::user()));
     }
 
     public function hapusakun()
     {
-        $id = Auth::user()->id;
-        $messages = UserEmail::where(function($query) use ($id) 
-        {
-            $query->where('receiver_id','=', $id);
-
-        })->where(function ($query){
-
-            $query->where('status', 'LIKE', 'unread');
-    
-        });
-        return view('profil.home', compact('messages'), array('user' => Auth::user()));
+        return view('profil.home', array('user' => Auth::user()));
     }
 
     public function PropertiSG()
     {
         $userId = auth()->id();
-        $messages = UserEmail::where(function($query) use ($userId) 
-        {
-            $query->where('receiver_id','=', $userId);
-
-        })->where(function ($query){
-
-            $query->where('status', 'LIKE', 'unread');
-
-        });
 
         $houses = PropertiSG::whereHas('property', function($query) use ($userId){
 
@@ -116,7 +77,7 @@ class PageController extends Controller
 
         })->paginate(15);
 
-        return view('profil.home', compact('houses','messages'),array('user' => Auth::user()));
+        return view('profil.home', compact('houses'),array('user' => Auth::user()));
     }
 
     // Add Propperties Methods

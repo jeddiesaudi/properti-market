@@ -13,6 +13,8 @@ use App\ReportProperty;
 use App\User;
 use App\UserEmail;
 use Auth;
+use Carbon\Carbon;
+
 use function GuzzleHttp\json_encode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -85,21 +87,7 @@ class AdminController extends Controller
 
     public function tampilAdminEditPropertiSG(PropertiSG $house)
     {
-
-        $id = Auth::user()->id;
-
-        $messages = UserEmail::where(function($query) use ($id) 
-        {
-            $query->where('receiver_id','=', $id);
-
-        })->where(function ($query){
-
-            $query->where('status', 'LIKE', 'unread');
-
-        });
-
-        return view('admin.master', compact('house','messages'));
-
+        return view('admin.master', compact('house'));
     }
 
 
@@ -221,6 +209,16 @@ class AdminController extends Controller
         $user->save();
 
         Alert::success('Akun pengguna telah berhasil ditambahkan!', 'Berhasil Ditambahkan!')->autoclose(3000);
+        return back();
+    }
+
+    public function adminVerifikasiUser(User $user)
+    {
+
+        $user->email_verified_at = Carbon::now();
+        $user->save();
+
+        Alert::success('Akun pengguna telah berhasil diverifikasi!', 'Berhasil Diverifikasi!')->autoclose(3000);
         return back();
     }
 

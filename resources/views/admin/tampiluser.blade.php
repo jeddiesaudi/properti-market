@@ -41,9 +41,12 @@
                     <div class="is-pulled-right">
                         <p class="subtitle is-7 is-marginless">
                             @if($user->email_verified_at==NULL)
-                            <span class="has-text-danger has-text-weight-bold">Belum Terverifikasi</span> @else
+                            <span class="has-text-danger has-text-weight-bold">Belum Terverifikasi</span><br>
+                            <a href="/admin/user/{{$user->id}}/verifikasi" class="button is-success nounnounderlinebtn is-small">Verifikasi Akun</a>
+                            @else
                             <span class="has-text-success has-text-weight-bold">User Terverifikasi</span> @endif
                         </p>
+                        <br>
                         <p class="subtitle is-7 is-marginless">
                             @if($user->NIC==null || $user->description==null || $user->address==null || $user->city==null || $user->gender==null || $user->NIC==null
                             || $user->birthday==null || $user->phoneNo==null)

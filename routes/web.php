@@ -78,6 +78,9 @@ Route::post('/admin/{admin}/hapus', [App\Http\Controllers\AdminController::class
 Route::get('/admin/report', [App\Http\Controllers\AdminController::class, 'tampilReport'])->middleware('auth:admin');
 Route::post('/admin/report/{property}/lock', [App\Http\Controllers\AdminController::class, 'lockProperti'])->middleware('auth:admin');
 Route::post('/admin/report/{property}/unlock', [App\Http\Controllers\AdminController::class, 'unlockProperti'])->middleware('auth:admin');
+Route::get('/admin/user/{user}/verifikasi', [App\Http\Controllers\AdminController::class, 'adminVerifikasiUser'])->middleware('auth:admin');
+
+
 
 // Auth::routes();
 Auth::routes(['verify' => true]);

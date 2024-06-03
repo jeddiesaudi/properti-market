@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 // Auth::routes();
 
 Route::get('/',[App\Http\Controllers\PageController::class, 'index']);
-Route::get('/logout', [App\Http\Controllers\PageController::class, 'logout'])->name('logout');
+Route::get('/logout', [App\Http\Controllers\PageController::class, 'logout']);
 
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
 Route::get('/admin/login', [App\Http\Controllers\Auth\AdminLoginController::class, 'showLoginForm'])->name('admin.login');
@@ -34,13 +34,17 @@ Route::get('/admin/propertisg/{house}', [App\Http\Controllers\PropertiSGControll
 Route::post('/propertisg/{house}', [App\Http\Controllers\PropertiSGController::class, 'cariPropertiSG']);
 Route::post('/propertisg/{house}/report', [App\Http\Controllers\ReportPropertyController::class, 'reportPropertiSG']);
 Route::get('/profil/propertisg/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'tampilEditPropertiSG'])->middleware('auth');
+Route::get('/profil/propertisg/{house}/rent', [App\Http\Controllers\PropertiSGController::class, 'tampilRentPropertiSG'])->middleware('auth');
+Route::get('/profil/propertisg/{house}/renter', [App\Http\Controllers\PropertiSGController::class, 'tampilRenterPropertiSG'])->middleware('auth');
 Route::post('/profil/propertisg/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'editPropertiSG']);
+Route::post('/profil/propertisg/{house}/rent', [App\Http\Controllers\PropertiSGController::class, 'rentPropertiSG']);
+Route::post('/profil/propertisg/{trans}/rentDone', [App\Http\Controllers\PropertiSGController::class, 'rentDonePropertiSG']);
 Route::post('/profil/propertisg/{house}/hapus', [App\Http\Controllers\PropertiSGController::class, 'hapusPropertiSG']);
 Route::post('/admin/propertisg/{house}/hapus', [App\Http\Controllers\PropertiSGController::class, 'hapusPropertiSG'])->middleware('auth:admin');
 
 
 //General Route
-Route::post('/sendmessage', [App\Http\Controllers\MessageController::class, 'contactUsEmail'])->middleware('guest');
+// Route::post('/sendmessage', [App\Http\Controllers\MessageController::class, 'contactUsEmail'])->middleware('guest');
 
 //User Profile Section
 Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'loadUserDashboard'])->middleware('auth');
@@ -48,9 +52,6 @@ Route::get('/profil/gantipassword', [App\Http\Controllers\PageController::class,
 Route::get('/profil/editprofil', [App\Http\Controllers\PageController::class, 'editprofil'])->middleware('auth');
 Route::get('/profil/hapusakun', [App\Http\Controllers\PageController::class, 'hapusakun'])->middleware('auth');
 Route::get('/profil/propertisg', [App\Http\Controllers\PageController::class, 'PropertiSG'])->middleware('auth');
-Route::get('/profil/terjual', [App\Http\Controllers\ProfilController::class, 'tampilPropertiTerjual'])->middleware('auth');
-Route::get('/profil/terjual/{property}/tandaiterjual', [App\Http\Controllers\ProfilController::class, 'tandaiTerjual'])->middleware('auth');
-Route::get('/profil/terjual/{property}/tandaibelumterjual', [App\Http\Controllers\ProfilController::class, 'tandaiBelumTerjual'])->middleware('auth');
 Route::post('/profil/updateavatar', [App\Http\Controllers\ProfilController::class, 'updateAvatar'])->middleware('auth');
 Route::post('/profil/user/{user}/hapus', [App\Http\Controllers\ProfilController::class, 'hapusAkunUser'])->middleware('auth');
 Route::post('/profil/updateakun', [App\Http\Controllers\ProfilController::class, 'updateAkun'])->middleware('auth');

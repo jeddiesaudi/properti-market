@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\PropertiSG;
 use App\UserEmail;
-use App\Artikel;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 
@@ -76,6 +75,7 @@ class PageController extends Controller
             $query->where('user_id','=',$userId);
 
         })->paginate(15);
+        
 
         return view('profil.home', compact('houses'),array('user' => Auth::user()));
     }

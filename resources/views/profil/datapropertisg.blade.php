@@ -18,7 +18,7 @@
                             <span class="has-text-dark">Harga :</span> Rp. {{number_format($house->property->amount,2)}} <br>
                             <span class="has-text-dark">Periode :</span> {{$house->property->periode}} Bulan<br>
                             <span class="has-text-dark">Tersedia :</span> {{$house->stok}} <br>
-                            <span class="has-text-dark">Tersewa :</span> 0
+                            <span class="has-text-dark">Tersewa :</span> {{ $tersewaCount }}
                             
                         </p>
                     </div>
@@ -26,7 +26,8 @@
 
                 <div class="content">
                     <div class="buttons is-pulled-right">
-                        <button class="button is-success is-pulled-right" onclick="window.open('/propertisg/{{$house->id}}','_blank');">Lihat</button>
+                        <button class="button is-success is-pulled-right" onclick="window.open('/profil/propertisg/{{$house->id}}/renter','_blank');">Sewa</button>
+                        <button class="button is-dark is-pulled-right" onclick="window.open('/propertisg/{{$house->id}}','_blank');">Lihat</button>
                         <button class="button is-warning is-pulled-right" onclick="window.open('/profil/propertisg/{{$house->id}}/edit','_blank');">Edit</button>
                         <form action="/profil/propertisg/{{$house->id}}/hapus" method="post">
                             @csrf

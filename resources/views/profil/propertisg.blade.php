@@ -12,6 +12,10 @@
             <div class="row">
                     @if($houses->count() > 0) 
                     @foreach ($houses as $house)
+                        @php 
+                        $tersewa = App\Transaction::where('property_id', $house->id)->get();
+                        $tersewaCount = count($tersewa);
+                        @endphp
                         @include('profil.datapropertisg') 
                     @endforeach 
                     @else

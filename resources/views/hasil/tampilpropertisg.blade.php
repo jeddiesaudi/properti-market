@@ -101,7 +101,6 @@
             </div>
     </div>
     </div>
-    @include('layouts.reportrumah')
     {{-- Footer --}}
     @include('layouts.footer')
      {{-- JavaScript Files --}}

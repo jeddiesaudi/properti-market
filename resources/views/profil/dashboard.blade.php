@@ -43,7 +43,7 @@
               <span class="iicon has-text-centered is-large has-text-dark">
                 <i class="far fa-check-circle fa-4x"></i>
               </span>
-              <h6 class="is-uppercase has-text-weight-bold has-text-dark">Properti Terjual</h6>
+              <h6 class="is-uppercase has-text-weight-bold has-text-dark">Properti Tersewa</h6>
             </div>
             <div class="column has-text-centered selecticon" onclick="location.href='/'">
               <span class="icon has-text-centered is-large has-text-dark">

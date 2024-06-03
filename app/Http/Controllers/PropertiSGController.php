@@ -8,6 +8,7 @@ use App\UserEmail;
 use App\MailNotification;
 use App\Mail\EmailNotification;
 use App\PropertiSG;
+use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -66,7 +67,6 @@ class PropertiSGController extends Controller
     {
 
         $property = Property::find(request('propertyid'));
-        $house = PropertiSG::find(request('houseid'));
 
         if ($property->user_id == auth()->id() || Auth::guard('admin')->check()) {
 
@@ -77,7 +77,6 @@ class PropertiSGController extends Controller
                 'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
                 'amount' => 'required|regex:/^\d+(\.\d{1,2})?$/',        
                 'periode' => 'required|integer',
-                'stok' => 'required|integer',
             ]);
 
             if ($request->hasfile('filename')) {
@@ -111,9 +110,6 @@ class PropertiSGController extends Controller
 
             $property->save();
 
-            $house->stok = request('stok');
-            $house->save();
-
             Alert::success('Properti Anda telah berhasil diedit!', 'Berhasil Diperbarui')->autoclose(3000);
             return back()->with('message', 'Your property has been Berhasil Diperbarui!');
         } else {
@@ -122,6 +118,85 @@ class PropertiSGController extends Controller
             return redirect('/profil');
 
         }
+    }
+
+    public function tampilRentPropertiSG(PropertiSG $house)
+    {
+        if ($house->property->user_id == auth()->id()) {
+
+            $id = Auth::user()->id;
+    
+            return view('profil.home', compact('house'), array('user' => Auth::user()));
+    
+            } else {
+    
+                Alert::error('Permintaan Anda telah ditolak oleh sistem', 'Upaya Tidak Diizinkan')->autoclose(3000);
+                return redirect('/profil');
+            }
+
+    }
+    
+    public function rentPropertiSG(Request $request)
+    {
+        $request->validate([
+            'renter_name' => 'required',
+            'renter_contact' => 'required',
+            'renter_address' => 'required',
+            'rent_start' => 'required',
+            'rent_end' => 'required',
+            'property_id' => 'required'
+        ]);
+
+        // Mengurangi stok properti
+        $property = PropertiSG::findOrFail($request->property_id);
+        $property->decrement('stok'); // Mengurangi stok properti setiap kali transaksi disimpan
+
+        $transaction = new Transaction;
+        $transaction->status = 'Rented';
+
+        $transaction->renter_name = request('renter_name');
+        $transaction->renter_contact = request('renter_contact');
+        $transaction->renter_address = request('renter_address');
+        $transaction->rent_start = request('rent_start');
+        $transaction->rent_end = request('rent_end');
+        $transaction->propertY_id = request('property_id');
+        $transaction->save();
+
+        return back()->with('message', 'Penyewa Berhasil Disimpan!');
+
+    }
+    
+    public function rentDonePropertiSG(Transaction $trans)
+    {
+        // Mengambil properti dengan id renter
+        $property = PropertiSG::findOrFail($trans->property_id);
+
+        // Menambah stok properti dan menghapus renter
+        if ($property->increment('stok') && $trans->delete()) {
+            Alert::success('Sewa Telah Berhasil Diselesaikan!', 'Sukses')->autoclose(3000);
+            return back();
+        } else {
+            Alert::error('Permintaan Anda telah ditolak oleh sistem', 'Upaya Tidak Diizinkan')->autoclose(3000);
+            return back();
+        }
+    }
+    
+    public function tampilRenterPropertiSG(PropertiSG $house)
+    {
+        if ($house->property->user_id == auth()->id()) {
+
+            $id = Auth::user()->id;
+
+            $renter = Transaction::where('property_id', $house->property->id)->get();
+    
+            return view('profil.home', compact('house', 'renter'), array('user' => Auth::user()));
+    
+        } else {
+
+            Alert::error('Permintaan Anda telah ditolak oleh sistem', 'Upaya Tidak Diizinkan')->autoclose(3000);
+            return redirect('/profil');
+        }
+
     }
 
     public function hapusPropertiSG(PropertiSG $house)

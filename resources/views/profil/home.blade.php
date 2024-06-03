@@ -61,17 +61,20 @@
             @include('profil.gantipassword')
           @elseif(Request::is('profil/editprofil'))
             @include('profil.editprofil')
-          @elseif(Request::is('profil/terjual'))
-            @include('profil.tandaiterjual')
           @elseif(Request::is('profil/hapusakun'))
             @include('profil.hapusakun')
           @elseif(Request::is('profil/propertisg'))
             @include('profil.propertisg')
+          @elseif(Request::is('profil/propertisg/*/rent'))
+            @include('profil.rentpropertisg') 
+          @elseif(Request::is('profil/propertisg/*/rentDone'))
+            @include('profil.rentpropertisg') 
+          @elseif(Request::is('profil/propertisg/*/renter'))
+            @include('profil.renterpropertisg')  
           @elseif(Request::is('profil/propertisg/*/edit'))
-            @include('profil.editpropertisg')  
+            @include('profil.editpropertisg')
           @else
             @include('profil.dashboard')
-          
           @endif
         <div id="myModal" class="modal column is-half is-offset-one-quarter">
             <div class="modal-content">

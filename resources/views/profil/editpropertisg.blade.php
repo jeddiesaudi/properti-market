@@ -95,11 +95,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    {{-- next column start here --}}
-                    <div class="column">
-                        
-                        
+
                         <div class="field">
                             <div class="control">
                                 <label for="name">Periode Sewa</label>
@@ -112,13 +108,6 @@
                                     <option value="12">12 Bulan</option>
                                 </select>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="control">
-                                <label for="name">Stok</label>
-                                <input class="input is-primary" type="number" name="stok" value="{{$house->stok}}">
                             </div>
                         </div>
                         

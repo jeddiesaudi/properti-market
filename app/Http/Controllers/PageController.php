@@ -3,18 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Page;
-use App\User;
-use App\Message;
-
 use Auth;
-use DB;
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use App\PropertiSG;
-use App\UserEmail;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth as FacadesAuth;
+use App\Transaction;
 
 class PageController extends Controller
 {
@@ -76,8 +68,22 @@ class PageController extends Controller
 
         })->paginate(15);
         
-
         return view('profil.home', compact('houses'),array('user' => Auth::user()));
+    }
+    
+    public function RenterPropertiSG()
+    {
+        $userId = auth()->id();
+
+        $houses = PropertiSG::whereHas('property', function($query) use ($userId){
+
+            $query->where('user_id','=',$userId);
+
+        })->paginate(15);
+
+        $renter = Transaction::get();
+        
+        return view('profil.home', compact('houses', 'renter'),array('user' => Auth::user()));
     }
 
     // Add Propperties Methods

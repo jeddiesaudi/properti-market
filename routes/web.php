@@ -52,6 +52,7 @@ Route::get('/profil/gantipassword', [App\Http\Controllers\PageController::class,
 Route::get('/profil/editprofil', [App\Http\Controllers\PageController::class, 'editprofil'])->middleware('auth');
 Route::get('/profil/hapusakun', [App\Http\Controllers\PageController::class, 'hapusakun'])->middleware('auth');
 Route::get('/profil/propertisg', [App\Http\Controllers\PageController::class, 'PropertiSG'])->middleware('auth');
+Route::get('/profil/propertisg/renterAll', [App\Http\Controllers\PageController::class, 'RenterPropertiSG'])->middleware('auth');
 Route::post('/profil/updateavatar', [App\Http\Controllers\ProfilController::class, 'updateAvatar'])->middleware('auth');
 Route::post('/profil/user/{user}/hapus', [App\Http\Controllers\ProfilController::class, 'hapusAkunUser'])->middleware('auth');
 Route::post('/profil/updateakun', [App\Http\Controllers\ProfilController::class, 'updateAkun'])->middleware('auth');

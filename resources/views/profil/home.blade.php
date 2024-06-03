@@ -39,6 +39,7 @@
                 <ul class="menu-list listitem">
                   <li><a href="/tambah/propertisg">Tambah Properti</a></li>
                   <li><a href="/profil/propertisg">Semua Properti</a></li>
+                  <li><a href="/profil/propertisg/renterAll">Semua Properti Tersewa</a></li>
                 <p class="menu-label has-text-link is-4 is-size-7 has-text-weight-bold has-text-danger is-uppercase">
                   Pengaturan Akun
                 </p>
@@ -71,6 +72,8 @@
             @include('profil.rentpropertisg') 
           @elseif(Request::is('profil/propertisg/*/renter'))
             @include('profil.renterpropertisg')  
+          @elseif(Request::is('profil/propertisg/renterAll'))
+            @include('profil.allrenterpropertisg')  
           @elseif(Request::is('profil/propertisg/*/edit'))
             @include('profil.editpropertisg')
           @else

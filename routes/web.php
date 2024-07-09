@@ -32,7 +32,6 @@ Route::get('/propertisg/cari', [App\Http\Controllers\PageController::class, 'car
 Route::get('/propertisg/{house}', [App\Http\Controllers\PropertiSGController::class, 'tampilPropertiSG']);
 Route::get('/admin/propertisg/{house}', [App\Http\Controllers\PropertiSGController::class, 'tampilPropertiSG']);
 Route::post('/propertisg/{house}', [App\Http\Controllers\PropertiSGController::class, 'cariPropertiSG']);
-Route::post('/propertisg/{house}/report', [App\Http\Controllers\ReportPropertyController::class, 'reportPropertiSG']);
 Route::get('/profil/propertisg/{house}/edit', [App\Http\Controllers\PropertiSGController::class, 'tampilEditPropertiSG'])->middleware('auth');
 Route::get('/profil/propertisg/{house}/rent', [App\Http\Controllers\PropertiSGController::class, 'tampilRentPropertiSG'])->middleware('auth');
 Route::get('/profil/propertisg/{house}/renter', [App\Http\Controllers\PropertiSGController::class, 'tampilRenterPropertiSG'])->middleware('auth');

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 15, 2024 at 08:49 AM
+-- Generation Time: Jul 09, 2024 at 02:40 AM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.3.4
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,8 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `password`, `avatar`, `issuper`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Dahyani', 'dahyani@example.com', '$2y$10$JHK.2MTc9ORMmmlqoF.gg.SwDLnevVSj1oreHParu5PvcPEDOWqe6', '1714371908.jpg', 1, NULL, NULL, '2024-04-29 07:25:08');
+(1, 'Dahyani', 'dahyani@example.com', '$2y$10$JHK.2MTc9ORMmmlqoF.gg.SwDLnevVSj1oreHParu5PvcPEDOWqe6', '1714371908.jpg', 1, NULL, NULL, '2024-04-29 07:25:08'),
+(3, 'Jeddie', 'jeddie@example.com', '$2y$10$JEkmZWYy/QCpgvgGUY01sOWvykjmkpVEc822OLTIsliWcLiVzM492', 'user.jpg', 0, NULL, '2024-06-05 03:31:52', '2024-06-05 03:31:52');
 
 -- --------------------------------------------------------
 
@@ -148,6 +149,26 @@ INSERT INTO `properties` (`id`, `user_id`, `name`, `type`, `wilayah`, `amount`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `report_properties`
+--
+
+CREATE TABLE `report_properties` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `property_id` bigint(20) UNSIGNED NOT NULL,
+  `rumah_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `lahan_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `gedung_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `apartemen_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `gudang_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `reporterEmail` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Reason` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `rumahs`
 --
 
@@ -164,8 +185,8 @@ CREATE TABLE `rumahs` (
 --
 
 INSERT INTO `rumahs` (`id`, `property_id`, `stok`, `created_at`, `updated_at`) VALUES
-(3, 3, 15, '2024-04-29 04:26:52', '2024-05-15 09:48:18'),
-(4, 4, 7, '2024-04-29 04:27:40', '2024-04-29 04:27:40');
+(3, 3, 16, '2024-04-29 04:26:52', '2024-06-03 08:15:43'),
+(4, 4, 7, '2024-04-29 04:27:40', '2024-06-03 09:05:49');
 
 -- --------------------------------------------------------
 
@@ -191,8 +212,7 @@ CREATE TABLE `transactions` (
 --
 
 INSERT INTO `transactions` (`id`, `property_id`, `renter_name`, `renter_contact`, `renter_address`, `rent_start`, `rent_end`, `status`, `created_at`, `updated_at`) VALUES
-(2, 3, 'Jeddie', '081231238', 'Serang, Banten', '2024-05-01', '2024-08-31', 'Rented', '2024-05-07 07:07:14', '2024-05-07 07:07:14'),
-(3, 3, 'Otih', '081231231', 'Serang', '2024-06-01', '2024-08-31', 'Rented', '2024-05-15 09:48:18', '2024-05-15 09:48:18');
+(2, 3, 'Jeddie', '081231238', 'Serang, Banten', '2024-05-01', '2024-08-31', 'Rented', '2024-05-07 07:07:14', '2024-05-07 07:07:14');
 
 -- --------------------------------------------------------
 
@@ -225,7 +245,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `avatar`, `description`, `NIC`, `address`, `city`, `gender`, `birthday`, `phoneNo`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Dahyani Staf Properti', 'dahyani@example.com', '2024-03-25 12:54:11', '$2y$10$JHK.2MTc9ORMmmlqoF.gg.SwDLnevVSj1oreHParu5PvcPEDOWqe6', '1714371933.jpg', 'Admin Staf Properti', '123123123123', 'Bogor', 'Bogor', 'Laki-Laki', '1999-01-28', '0812312313', NULL, NULL, '2024-04-29 07:25:33'),
-(6, 'jedday', 'jedday@example.com', NULL, '$2y$10$THBT15xUKDwjk0TQIpGmXOlk8k/ca4OyGl1RCepoTTezQVNwVkbEC', 'user.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-03 04:21:00', '2024-05-03 04:21:00');
+(6, 'jedday', 'jedday@example.com', '2024-06-04 03:50:49', '$2y$10$THBT15xUKDwjk0TQIpGmXOlk8k/ca4OyGl1RCepoTTezQVNwVkbEC', 'user.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-03 04:21:00', '2024-06-04 03:50:49'),
+(8, 'Otih', 'otih@example.com', NULL, '$2y$10$LvK.aOBzoa1EtFB5fN16S..mTcoB5Y1c/hLzWLcof24qQlBj/iWB6', 'user.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-06-05 03:48:45', '2024-06-05 03:48:45');
 
 --
 -- Indexes for dumped tables
@@ -265,6 +286,18 @@ ALTER TABLE `properties`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `report_properties`
+--
+ALTER TABLE `report_properties`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `report_properties_property_id_foreign` (`property_id`),
+  ADD KEY `report_properties_rumah_id_foreign` (`rumah_id`),
+  ADD KEY `report_properties_lahan_id_foreign` (`lahan_id`),
+  ADD KEY `report_properties_gedung_id_foreign` (`gedung_id`),
+  ADD KEY `report_properties_apartemen_id_foreign` (`apartemen_id`),
+  ADD KEY `report_properties_gudang_id_foreign` (`gudang_id`);
+
+--
 -- Indexes for table `rumahs`
 --
 ALTER TABLE `rumahs`
@@ -293,7 +326,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -311,25 +344,31 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `properties`
 --
 ALTER TABLE `properties`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `report_properties`
+--
+ALTER TABLE `report_properties`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `rumahs`
 --
 ALTER TABLE `rumahs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

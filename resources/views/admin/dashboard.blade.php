@@ -1,39 +1,27 @@
 <script type="text/javascript" src="/js/googlecharts.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawCharts);
 
-      function drawChart() {
+  function drawCharts() {
+    drawPropertyTypeChart();
+    drawStockChart();
+  }
 
-      var data = google.visualization.arrayToDataTable({!! $data !!},false);
-      var options = {'title':'Persentase Jenis Properti', 'width':450,'height':400};
-      var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-      chart.draw(data, options);
+  function drawPropertyTypeChart() {
+    var data = google.visualization.arrayToDataTable({!! $data !!}, false);
+    var options = {'title':'Persentase Jenis Properti', 'width':450, 'height':400};
+    var chart = new google.visualization.PieChart(document.getElementById('property_type_chart_div'));
+    chart.draw(data, options);
+  }
 
-    }
-    </script>
-    
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart', 'bar']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-
-      var data = google.visualization.arrayToDataTable({!! $graphReportData !!},false);
-      var options = {title: 'Jumlah Report Bulanan',
-                    chartArea: {width: '50%'},
-                    hAxis: {
-                      title: 'Total Report',
-                      minValue: 0
-                    },
-                    vAxis: {
-                      title: 'Bulan'
-                    },'width':300,'height':200};
-      var chart = new google.visualization.BarChart(document.getElementById('chart_report'));
-      chart.draw(data, options);
-
-    }
-    </script>
+  function drawStockChart() {
+    var data = google.visualization.arrayToDataTable({!! $graphReportData !!}, false);
+    var options = {'title':'Persentase Stok Properti', 'width':450, 'height':400};
+    var chart = new google.visualization.PieChart(document.getElementById('stock_chart_div'));
+    chart.draw(data, options);
+  }
+</script>
     
 <div class="column displaybox profileback">
   @include('admin.navprofile')
@@ -46,9 +34,13 @@
   <div class="subtitle has-text-black-bis">Lihat Ringkasan</div>
   <div class="columns">
     <div class="column">
-        <div id="chart_div">
+        <div id="property_type_chart_div">
         </div>
     </div>
+    <div class="column">
+      <div id="stock_chart_div">
+      </div>
+    </div> 
     <div class="column">
         <div class="columns">
           <div class="column" id="chart_province"></div>
@@ -94,18 +86,22 @@
         </tr>
       </tfoot>
       <tbody>
-        @foreach ($properties as $key=>$property)
+        @foreach ($houses as $key=>$house)
+        @php
+          $tersewa = App\Transaction::where('property_id', $house->id)->get();
+          $tersewaCount = count($tersewa);
+        @endphp
         <tr>
           <td>{{$key+1}}</td>
-          <td>{{$property->name}}</td>
-          <td>{{$property->city}}</td>
-          <td>{{$property->type}}</td>
-          <td>{{number_format($property->amount,2)}}</td>
-          <td>{{$property->periode}} Bulan</td>
-          <td>0</td>
-          <td>0</td>
-          <td>{{$property->user->name}}</td>
-          <td><a href="/admin/propertisg/{{$property->id}}" class="button is-dark nounnounderlinebtn"
+          <td>{{$house->property->name}}</td>
+          <td>{{$house->property->city}}</td>
+          <td>{{$house->property->type}}</td>
+          <td>{{number_format($house->property->amount,2)}}</td>
+          <td>{{$house->property->periode}} Bulan</td>
+          <td>{{ $house->stok }}</td>
+          <td>{{ $tersewaCount }}</td>
+          <td>{{$house->property->user->name}}</td>
+          <td><a href="/admin/propertisg/{{$house->property->id}}" class="button is-dark nounnounderlinebtn"
               target="_blank">Lihat</a></td>
         </tr>
         @endforeach

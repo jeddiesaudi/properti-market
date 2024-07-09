@@ -19,7 +19,7 @@ class PageController extends Controller
     public function __construct()
     {
         $this->middleware(['auth','verified'])->only([
-            'profil', 'gantiPassword', 'editakun', 'PropertiSG', 'hapusakun', 'tambahPropertiSG'
+            'profil', 'gantiPassword', 'editakun', 'PropertiSG', 'hapusakun', 'tambahPropertiSG', 'RenterPropertiSG'
         ]);
     }
     public function index()

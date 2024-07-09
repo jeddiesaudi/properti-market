@@ -60,19 +60,23 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        @if($properties->count() > 0) @foreach ($properties as $key=>$property)
+                        @if($houses->count() > 0) @foreach ($houses as $key=>$house)
+                        @php
+                            $tersewa = App\Transaction::where('property_id', $house->id)->get();
+                            $tersewaCount = count($tersewa);
+                        @endphp
                         <tr>
                             <td>{{$key+1}}</td>
-                            <td>{{$property->name}}</td>
-                            <td>{{$property->city}}</td>
-                            <td>{{$property->type}}</td>
-                            <td>{{number_format($property->amount,2)}}</td>
-                            <td>{{$property->periode}} Bulan</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td><a href="/admin/propertisg/{{$property->id}}" class="button is-dark nounnounderlinebtn" target="_blank"><i class="fas fa-external-link-square-alt"></i></a></td> 
+                            <td>{{$house->property->name}}</td>
+                            <td>{{$house->property->city}}</td>
+                            <td>{{$house->property->type}}</td>
+                            <td>{{number_format($house->property->amount,2)}}</td>
+                            <td>{{$house->property->periode}} Bulan</td>
+                            <td>{{$house->stok}}</td>
+                            <td>{{$tersewaCount}}</td>
+                            <td><a href="/admin/propertisg/{{$house->property->id}}" class="button is-dark nounnounderlinebtn" target="_blank"><i class="fas fa-external-link-square-alt"></i></a></td> 
                             <td>
-                                <form action="/admin/propertisg/{{$property->id}}/hapus" method="post">
+                                <form action="/admin/propertisg/{{$house->property->id}}/hapus" method="post">
                                     @csrf
                                     <button class="button is-danger nounnounderlinebtn" type="submit" onclick="deleteMe();"><i class="far fa-trash-alt"></i></button>
                                 </form>
@@ -81,7 +85,7 @@
                         @endforeach @endif
                     </tbody>
                 </table>
-                {{ $properties->links() }}
+                {{ $houses->links() }}
             </div>
         </div>
     </div>

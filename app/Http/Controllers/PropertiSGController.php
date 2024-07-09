@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Alert;
 use App\Property;
-use App\UserEmail;
-use App\MailNotification;
-use App\Mail\EmailNotification;
 use App\PropertiSG;
 use App\Transaction;
 use Illuminate\Http\Request;

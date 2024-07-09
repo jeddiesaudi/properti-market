@@ -39,7 +39,7 @@
               </span>
               <h6 class="is-uppercase has-text-weight-bold has-text-dark">Edit Profil</h6>
             </div>
-            <div class="column has-text-centered selecticon" onclick="location.href='/profil/terjual'">
+            <div class="column has-text-centered selecticon" onclick="location.href='/profil/propertisg/renterAll'">
               <span class="iicon has-text-centered is-large has-text-dark">
                 <i class="far fa-check-circle fa-4x"></i>
               </span>

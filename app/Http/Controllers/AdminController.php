@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Alert;
 use App\Admin;
 use App\PropertiSG;
+use App\Transaction;
 use App\MailNotification;
 use App\Mail\EmailNotification;
 use App\Message;
@@ -29,32 +30,47 @@ class AdminController extends Controller
     {
         $this->middleware('auth:admin');
     }
+
     public function index()
     {
-
-        $properties = Property::limit(5)->orderBy('id', 'desc')->get();
         $users = User::limit(5)->orderBy('id', 'desc')->get();
+        $houses = PropertiSG::limit(5)->orderBy('id', 'desc')->get();
 
-        //Type Graph
-        $graphData = Property::select('type', DB::raw('count(type) number'))->groupBy('type')->get();
-        $array[] = ['Type', 'Number'];
+        // Type Graph
+        $graphData = Property::select('type', DB::raw('count(type) as number'))->groupBy('type')->get();
+        $array = [['Type', 'Number']];
         foreach ($graphData as $key => $value) {
-
-            $array[++$key] = [$value->type, $value->number];
+            $array[] = [$value->type, $value->number];
         }
         $data = json_encode($array);
 
-        //Property Reports
-        $graphReport = ReportProperty::select(DB::raw('monthname(created_at) as Month,count(date_format(created_at,"%m")) as Count'))->groupBy('Month')->get();
-        $arrayReport[] = ['Month', 'Count'];
-        foreach ($graphReport as $key => $value) {
+        // Stock Graph
+        $graphReport = PropertiSG::select(DB::raw('SUM(stok) as total_stok'))->first();
+        $totalStock = $graphReport->total_stok;
 
-            $arrayReport[++$key] = [$value->Month, $value->Count];
-        }
+        // Get the total number of rows in the Transaction table
+        $totalTransactions = Transaction::count();
+
+        // Calculate the available stock
+        $availableStock = $totalStock - $totalTransactions; // Assuming available stock is the remaining stock
+
+        // Calculate the percentages
+        $availablePercentage = $availableStock;
+        $leasedPercentage = $totalTransactions;
+
+        // Prepare the array for Google Chart
+        $arrayReport = [
+            ['Stok', 'Percentage'],
+            ['Tersedia', $availablePercentage],
+            ['Tersewa', $leasedPercentage]
+        ];
+
         $graphReportData = json_encode($arrayReport);
 
-        return view('admin.master', compact('properties', 'users', 'data', 'graphReportData'));
+        return view('admin.master', compact('users', 'data', 'houses', 'graphReportData'))
+            ->with('jsonDebug', json_encode(compact('data', 'graphReportData')));
     }
+
 
     public function updateAvatar(Request $request)
     {
@@ -95,8 +111,10 @@ class AdminController extends Controller
     {
 
         $properties = Property::paginate(25);
+        $houses = PropertiSG::paginate(25);
 
-        return view('admin.master', compact('properties'));
+
+        return view('admin.master', compact('houses'));
     }
 
     public function tampilSemuaPropertiSG()

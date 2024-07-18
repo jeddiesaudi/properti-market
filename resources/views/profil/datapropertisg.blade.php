@@ -26,9 +26,9 @@
 
                 <div class="content">
                     <div class="buttons is-pulled-right">
-                        <button class="button is-success is-pulled-right" onclick="window.open('/profil/propertisg/{{$house->id}}/renter','_blank');">Sewa</button>
-                        <button class="button is-dark is-pulled-right" onclick="window.open('/propertisg/{{$house->id}}','_blank');">Lihat</button>
-                        <button class="button is-warning is-pulled-right" onclick="window.open('/profil/propertisg/{{$house->id}}/edit','_blank');">Edit</button>
+                        <button class="button is-success is-pulled-right" onclick="window.location.href = '/profil/propertisg/{{$house->id}}/renter';">Sewa</button>
+                        <button class="button is-dark is-pulled-right" onclick="window.location.href = '/propertisg/{{$house->id}}';">Lihat</button>
+                        <button class="button is-warning is-pulled-right" onclick="window.location.href = '/profil/propertisg/{{$house->id}}/edit';">Edit</button>
                         <form action="/profil/propertisg/{{$house->id}}/hapus" method="post">
                             @csrf
                             <button class="button is-danger is-pulled-right" type="submit" onclick="deleteMe();">Hapus</button>

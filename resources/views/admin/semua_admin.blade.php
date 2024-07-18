@@ -67,8 +67,7 @@
                             <td>{{('No')}}</td>
                             @endif
 
-                            <td><a href="/admin/{{$admin->id}}/edit" class="button is-warning nounnounderlinebtn"
-                                    target="_blank"><i class="fa fa-edit"></i></a></td>
+                            <td><a href="/admin/{{$admin->id}}/edit" class="button is-warning nounnounderlinebtn"><i class="fa fa-edit"></i></a></td>
                             <td>
                                 <form action="/admin/{{$admin->id}}/hapus" method="post">
                                     @csrf

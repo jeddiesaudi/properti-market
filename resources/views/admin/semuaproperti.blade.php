@@ -74,7 +74,7 @@
                             <td>{{$house->property->periode}} Bulan</td>
                             <td>{{$house->stok}}</td>
                             <td>{{$tersewaCount}}</td>
-                            <td><a href="/admin/propertisg/{{$house->property->id}}" class="button is-dark nounnounderlinebtn" target="_blank"><i class="fas fa-external-link-square-alt"></i></a></td> 
+                            <td><a href="/admin/propertisg/{{$house->property->id}}" class="button is-dark nounnounderlinebtn"><i class="fas fa-external-link-square-alt"></i></a></td> 
                             <td>
                                 <form action="/admin/propertisg/{{$house->property->id}}/hapus" method="post">
                                     @csrf

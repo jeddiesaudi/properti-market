@@ -14,16 +14,13 @@ use Illuminate\Support\Facades\Route;
 
 // Auth::routes();
 
-Route::get('/',[App\Http\Controllers\PageController::class, 'index']);
+Route::get('/',[App\Http\Controllers\PageController::class, 'index'])->name('index');
 Route::get('/logout', [App\Http\Controllers\PageController::class, 'logout']);
 
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
 Route::get('/admin/login', [App\Http\Controllers\Auth\AdminLoginController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [App\Http\Controllers\Auth\AdminLoginController::class, 'login'])->name('admin.login.submit');
 Route::get('/admin/logout', [App\Http\Controllers\Auth\AdminLoginController::class, 'logout'])->name('admin.logout');
-
-Route::get('/home', [App\Http\Controllers\PageController::class, 'index']);
-Route::get('/beranda', [App\Http\Controllers\PageController::class, 'index'])->name('index');
 
 Route::get('/tambah/propertisg', [App\Http\Controllers\PageController::class, 'tambahPropertiSG']);
 Route::post('/tambah/propertisg', [App\Http\Controllers\PropertyController::class, 'tambahPropertiSG']);

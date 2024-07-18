@@ -30,7 +30,7 @@
                    <div class="tabs">
                     <ul>
                       <li class="is-active has-background-danger tabitem">
-                        <a href="/beranda">
+                        <a href="/index">
                                   <span class="has-text-white">Properti</span>
                                 </a>
                       </li>
@@ -224,7 +224,8 @@
                                 <div class="content">
                                     <small class media-left>{{$house->property->created_at->diffForHumans()}}</small>
                                     <div class="buttons is-pulled-right">
-                                        <button class="button is-danger is-pulled-right" onclick="window.open('/propertisg/{{$house->id}}','_blank');">Lihat</button>
+                                        <button class="button is-danger is-pulled-right" 
+                                        onclick="window.location.href = '/propertisg/{{$house->id}}';">Lihat</button>
                                     </div>
                                 </div>
                             </div>

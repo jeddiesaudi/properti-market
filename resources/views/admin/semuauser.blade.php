@@ -77,8 +77,8 @@
                         <span class="has-text-success"> Terverifikasi </span>
                       @endif
                     </td>
-                  <td><a href="/admin/user/{{$user->id}}/tampil" class="button is-dark nounnounderlinebtn" target="_blank"><i class="fas fa-external-link-square-alt"></i></a></td>
-                  <td><a href="/admin/user/{{$user->id}}/edit" class="button is-warning nounnounderlinebtn" target="_blank"><i class="fa fa-edit"></i></a></td> 
+                  <td><a href="/admin/user/{{$user->id}}/tampil" class="button is-dark nounnounderlinebtn"><i class="fas fa-external-link-square-alt"></i></a></td>
+                  <td><a href="/admin/user/{{$user->id}}/edit" class="button is-warning nounnounderlinebtn"><i class="fa fa-edit"></i></a></td> 
                   <td>
                     <form action="/admin/user/{{$user->id}}/hapus" method="post">
                       @csrf

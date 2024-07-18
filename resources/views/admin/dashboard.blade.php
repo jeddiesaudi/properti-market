@@ -101,8 +101,7 @@
           <td>{{ $house->stok }}</td>
           <td>{{ $tersewaCount }}</td>
           <td>{{$house->property->user->name}}</td>
-          <td><a href="/admin/propertisg/{{$house->property->id}}" class="button is-dark nounnounderlinebtn"
-              target="_blank">Lihat</a></td>
+          <td><a href="/admin/propertisg/{{$house->property->id}}" class="button is-dark nounnounderlinebtn">Lihat</a></td>
         </tr>
         @endforeach
       </tbody>
@@ -152,7 +151,7 @@
                         Terverifikasi
                       @endif
                     </td>
-                  <td><a href="/admin/user/{{$user->id}}/tampil" class="button is-dark nounnounderlinebtn" target="_blank">Lihat User</a>
+                  <td><a href="/admin/user/{{$user->id}}/tampil" class="button is-dark nounnounderlinebtn">Lihat User</a>
     </td>
     </tr>
     @endforeach
